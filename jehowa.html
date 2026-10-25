@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth" data-scale="md">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Jehowa – Imię Boga w literaturze polskiej, przekładach i Biblii (JW.ORG)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            parchment: '#FAF7F2',
+            ink: '#181614',
+            goldAccent: '#8C5A2B',
+            jwBlue: '#2A528A',
+            jwBlueDark: '#1D3B66',
+            jwBlueLight: '#EDF3FA'
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --base-font: 18.5px;
+      --quote-size: 1.2rem;
+      --quote-lh: 1.75;
+      --card-title: 1.55rem;
+    }
+    html[data-scale="sm"] { --base-font: 16.5px; --quote-size: 1.08rem; }
+    html[data-scale="md"] { --base-font: 18.5px; --quote-size: 1.2rem; }
+    html[data-scale="lg"] { --base-font: 21px;   --quote-size: 1.32rem; }
+    html[data-scale="xl"] { --base-font: 24px;   --quote-size: 1.44rem; }
+
+    html {
+      font-size: var(--base-font);
+      background-color: #FAF7F2;
+      color: #181614;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    .quote-text {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: var(--quote-size);
+      line-height: var(--quote-lh);
+      color: #181614;
+    }
+    .author-heading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: var(--card-title);
+      line-height: 1.22;
+      font-weight: 700;
+    }
+    .divine-name {
+      color: #7C3F0E;
+      font-weight: 700;
+      background: rgba(180, 120, 50, 0.16);
+      padding: 0.04em 0.28em;
+      border-radius: 0.25rem;
+      border-bottom: 2px solid rgba(140, 90, 43, 0.45);
+    }
+    mark.search-hl {
+      background-color: #FDE047;
+      color: #181614;
+      padding: 0.04em 0.22em;
+      border-radius: 0.25rem;
+      font-weight: 700;
+    }
+    .touch-btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-amber-200 selection:text-stone-900">
+
+  <!-- GÓRNY PASEK NAWIGACJI + POWIĘKSZANIE TEKSTU -->
+  <header class="sticky top-0 z-50 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-stone-300 shadow-sm">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-2">
+      <a href="#" class="flex items-center gap-2.5">
+        <div class="w-11 h-11 rounded-xl bg-[#8C5A2B] text-white flex items-center justify-center font-display font-bold text-xl shadow-sm">
+          יהוה
+        </div>
+        <div>
+          <span class="block font-display font-bold text-lg sm:text-xl leading-none text-stone-900">
+            Jehowa w literaturze polskiej
+          </span>
+          <span class="block text-xs sm:text-sm text-stone-600 font-medium mt-0.5">
+            Antologia XVI–XX w. • Dekret 2008 a Biblia • Źródła JW.ORG
+          </span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-2">
+        <!-- PRZYCISKI POWIĘKSZANIA TEKSTU NA SMARTFONY -->
+        <div class="flex items-center gap-1 bg-stone-200/90 p-1 rounded-xl border border-stone-300" role="group" aria-label="Powiększanie tekstu">
+          <span class="text-xs font-semibold text-stone-700 px-1.5 hidden sm:inline">Tekst:</span>
+          <button type="button" onclick="setFontScale('sm')" data-scale-btn="sm" class="scale-btn px-2.5 py-1 rounded-lg text-xs font-bold transition" title="Mniejszy tekst">A-</button>
+          <button type="button" onclick="setFontScale('md')" data-scale-btn="md" class="scale-btn px-3 py-1 rounded-lg text-sm font-bold transition bg-white text-stone-900 shadow-sm" title="Domyślny tekst">A</button>
+          <button type="button" onclick="setFontScale('lg')" data-scale-btn="lg" class="scale-btn px-3 py-1 rounded-lg text-base font-bold transition" title="Duży tekst">A+</button>
+          <button type="button" onclick="setFontScale('xl')" data-scale-btn="xl" class="scale-btn px-3 py-1 rounded-lg text-lg font-extrabold transition" title="Bardzo duży tekst">A++</button>
+        </div>
+
+        <a href="#cel-publikacji" class="hidden lg:inline-flex px-3.5 py-2 rounded-xl bg-amber-800 hover:bg-amber-900 text-white text-xs sm:text-sm font-bold transition">
+          Cel publikacji i Dekret 2008
+        </a>
+        <a href="#jw-sources" class="hidden md:inline-flex px-3.5 py-2 rounded-xl bg-[#2A528A] hover:bg-[#1D3B66] text-white text-xs sm:text-sm font-bold transition">
+          Źródła JW.ORG
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SEKCJA HERO -->
+  <section class="bg-gradient-to-b from-[#F3EDE0] to-[#FAF7F2] border-b border-stone-300 pt-7 pb-9 px-4 sm:px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-900/10 border border-amber-900/20 text-amber-950 text-xs sm:text-sm font-semibold mb-3">
+        <span>Cyfrowe Archiwum Literackie i Biblijne • XVI–XX wiek</span>
+      </div>
+      <h1 class="font-display font-bold text-3xl sm:text-5xl md:text-6xl text-stone-900 tracking-tight leading-tight mb-4">
+        Imię Boga <span class="text-[#8C5A2B] underline decoration-amber-700/40 decoration-2 underline-offset-4">Jehowa</span> w literaturze polskiej
+      </h1>
+      <p class="text-stone-700 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed mb-6">
+        Zbiór ponad 125 świadectw literackich, historycznych, przekładów literatury światowej (w tym m.in. <em>Mąż z Nazaretu</em> Szaloma Asza, <em>Raj utracony</em> Johna Miltona, <em>Szata</em> Lloyda C. Douglasa, <em>Imię róży</em> Umberto Eco) oraz staropolskich przekładów Biblii i dzieł katolickich z oficjalnym <em>Imprimatur</em>, zestawiony z nauką biblijną w serwisie <strong>JW.ORG</strong>.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 max-w-4xl mx-auto text-left">
+        <div class="bg-white p-3.5 rounded-2xl border border-stone-300 shadow-sm">
+          <div class="text-2xl sm:text-3xl font-display font-bold text-[#8C5A2B]">125+</div>
+          <div class="text-xs sm:text-sm font-semibold text-stone-700">Autorów i tłumaczy</div>
+        </div>
+        <a href="#cel-publikacji" class="bg-amber-50 hover:bg-amber-100 p-3.5 rounded-2xl border border-amber-300 shadow-sm transition block">
+          <div class="text-2xl sm:text-3xl font-display font-bold text-amber-900">2008 r. ↓</div>
+          <div class="text-xs sm:text-sm font-semibold text-amber-950">Dekret Watykanu a Biblia</div>
+        </a>
+        <div class="bg-white p-3.5 rounded-2xl border border-stone-300 shadow-sm">
+          <div class="text-2xl sm:text-3xl font-display font-bold text-stone-900">1563–2004</div>
+          <div class="text-xs sm:text-sm font-semibold text-stone-700">450 lat tradycji w Polsce</div>
+        </div>
+        <a href="#jw-sources" class="bg-[#EDF3FA] hover:bg-blue-100/80 p-3.5 rounded-2xl border border-blue-200 shadow-sm transition block">
+          <div class="text-2xl sm:text-3xl font-display font-bold text-[#2A528A]">JW.ORG ↗</div>
+          <div class="text-xs sm:text-sm font-semibold text-stone-700">Wersety i Biblioteka</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOWA SEKCJA: CEL PUBLIKACJI KOMPENDIUM A ZAKAZ Z 2008 ROKU ORAZ WERSETY Z BIBLII JW.ORG -->
+  <section id="cel-publikacji" class="max-w-7xl mx-auto w-full px-3 sm:px-6 pt-8 pb-4">
+    <div class="bg-white rounded-2xl border-2 border-amber-700/40 shadow-md overflow-hidden">
+      <div class="bg-gradient-to-r from-[#8C5A2B] to-[#5E3A18] text-white px-5 sm:px-8 py-5">
+        <span class="inline-block px-3 py-0.5 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider mb-1.5">
+          Kontekst historyczny, teologiczny i biblijny
+        </span>
+        <h2 class="font-display font-bold text-2xl sm:text-4xl leading-tight">
+          Cel publikacji kompendium a watykański zakaz używania imienia Bożego z 2008 roku
+        </h2>
+      </div>
+
+      <div class="p-5 sm:p-8 space-y-6">
+        <!-- Część 1: Cel publikacji i dekret z 2008 r. -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="bg-[#FAF7F2] rounded-xl p-5 border border-stone-300">
+            <h3 class="font-display font-bold text-2xl text-stone-900 mb-2">
+              📜 Dyrektywa Watykanu z 29 czerwca 2008 r.
+            </h3>
+            <p class="text-stone-800 text-sm sm:text-base leading-relaxed mb-3">
+              W dniu 29 czerwca 2008 roku watykańska <strong>Kongregacja ds. Kultu Bożego i Dyscypliny Sakramentów</strong> (z aprobatą papieża Benedykta XVI) wydała oficjalną dyrektywę skierowaną do konferencji episkopatów na całym świecie, nakazującą <strong>wycofanie imienia Bożego</strong> (zarówno w formie <em>Jahwe</em>, jak i <em>Jehowa</em>) z czytania liturgicznego, modlitw, pieśni kościelnych oraz nowych przekładów biblijnych przeznaczonych do liturgii, i zastąpienie tetragramu (<strong>יהוה</strong>) tytułem „Pan” (<em>Dominus</em>).
+            </p>
+            <p class="text-stone-800 text-sm sm:text-base leading-relaxed">
+              W rezultacie zaczęto utrwalać przekonanie, jakoby forma <strong>„Jehowa”</strong> była obca polskiej tradycji, kulturze czy literaturze katolickiej.
+            </p>
+          </div>
+
+          <div class="bg-amber-50/70 rounded-xl p-5 border border-amber-300">
+            <h3 class="font-display font-bold text-2xl text-amber-950 mb-2">
+              🎯 Cel niniejszego kompendium (XVI–XX wiek)
+            </h3>
+            <p class="text-stone-800 text-sm sm:text-base leading-relaxed mb-3">
+              Celem tego kompendium jest udokumentowanie na podstawie <strong>ponad 125 źródeł z lat 1563–2004</strong>, że imię Boga w brzmieniu <strong>Jehowa</strong> jest trwale wpisane w dziedzictwo języka polskiego – używali go najwięksi polscy poeci, pisarze, naukowcy, a także <strong>duchowni, święci i papież z Kościoła katolickiego</strong>:
+            </p>
+            <ul class="space-y-1.5 text-sm sm:text-base text-stone-800 list-disc list-inside">
+              <li><strong>Książki katolickie z oficjalnym <em>Nihil obstat</em> i <em>Imprimatur</em></strong>: ks. Walenty Gadowski (<em>Apologetyczny Katechizm Katolicki</em>), ks. Józef Kłos (<em>Pismo Święte w Obrazach</em>), ks. Teodor Czerwiński, abp Antoni Szlagowski, ks. prof. Stanisław Łach (KUL), ks. prof. Józef Umiński.</li>
+              <li><strong>Karol Wojtyła (późniejszy papież Jan Paweł II)</strong>: dramaty biblijne <em>Hiob</em> oraz <em>Jeremiasz</em> (1940), gdzie imię <strong>Jehowa</strong> pojawia się wielokrotnie.</li>
+              <li><strong>Św. Faustyna Kowalska</strong>: <em>Dzienniczek</em> (Zeszyt VI: <em>„O wielki Jehowa, daj się być przebłagany”</em>).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Część 2: Wersety biblijne z JW.ORG w sprzeczności z zakazem używania imienia Bożego -->
+        <div class="border-t-2 border-stone-200 pt-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+            <div>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl text-stone-900">
+                📖 Wersety biblijne w sprzeczności z zakazem używania imienia Bożego
+              </h3>
+              <p class="text-stone-700 text-sm sm:text-base">
+                Cytaty z <strong>Pisma Świętego w Przekładzie Nowego Świata</strong> (opublikowanego w serwisie <strong>JW.ORG</strong>), które wykazują, że wolą Boga jest używanie, głoszenie i uświęcanie Jego imienia, a nie jego ukrywanie:
+              </p>
+            </div>
+            <a href="https://www.jw.org/pl/biblioteka/biblia/biblia-do-studium/ksiegi/" target="_blank" rel="noopener noreferrer" class="touch-btn shrink-0 px-4 py-2.5 rounded-xl bg-[#2A528A] hover:bg-[#1D3B66] text-white font-bold text-xs sm:text-sm transition">
+              Czytaj Biblię na JW.ORG ↗
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Werset 1 -->
+            <div class="bg-[#EDF3FA]/80 rounded-xl p-4 border-l-4 border-[#2A528A]">
+              <div class="flex items-center justify-between mb-1">
+                <span class="font-bold text-[#1D3B66] text-sm sm:text-base">Wyjścia 3:15 (Imię Boże ma być pamiętane na zawsze)</span>
+                <a href="https://www.jw.org/pl/szukaj/?q=Wyj%C5%9Bcia+3%3A15" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-[#2A528A] underline">JW.ORG ↗</a>
+              </div>
+              <blockquote class="quote-text text-stone-900">
+                „Potem Bóg jeszcze raz przemówił do Mojżesza: ‚Tak powiesz Izraelitom: „<span class="divine-name">Jehowa</span>, Bóg waszych praojców, Bóg Abrahama, Bóg Izaaka i Bóg Jakuba, posłał mnie do was”. <strong>To jest moje imię na zawsze i pod tym imieniem mają mnie pamiętać z pokolenia na pokolenie</strong>’”.
+              </blockquote>
+            </div>
+
+            <!-- Werset 2 -->
+            <div class="bg-[#EDF3FA]/80 rounded-xl p-4 border-l-4 border-[#2A528A]">
+              <div class="flex items-center justify-between mb-1">
+                <span class="font-bold text-[#1D3B66] text-sm sm:text-base">Izajasza 42:8 i Psalm 83:18 (Wyłączność imienia Jehowa)</span>
+                <a href="https://www.jw.org/pl/szukaj/?q=Izajasza+42%3A8+i+Psalm+83%3A18&link=%2Fresults%2FP%2Fall%3Fsort%3Drel%26q%3D" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-[#2A528A] underline">JW.ORG ↗</a>
+              </div>
+              <blockquote class="quote-text text-stone-900">
+                „<strong>Ja jestem <span class="divine-name">Jehowa</span>. To jest moje imię</strong>; swojej chwały nie oddam nikomu innemu ani swojej sławy rzeźbionym wizerunkom” (Iz 42:8).<br/>
+                „Niech ludzie wiedzą, że <strong>Ty, który nosisz imię <span class="divine-name">Jehowa</span></strong>, Ty sam jesteś Najwyższy nad całą ziemią” (Ps 83:18).
+              </blockquote>
+            </div>
+
+            <!-- Werset 3 -->
+            <div class="bg-[#EDF3FA]/80 rounded-xl p-4 border-l-4 border-[#2A528A]">
+              <div class="flex items-center justify-between mb-1">
+                <span class="font-bold text-[#1D3B66] text-sm sm:text-base">Rzymian 10:13 i Joela 2:32 (Wzywanie imienia warunkiem wybawienia)</span>
+                <a href="https://www.jw.org/pl/szukaj/?q=Rzymian+10%3A13+i+Joela+2%3A32" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-[#2A528A] underline">JW.ORG ↗</a>
+              </div>
+              <blockquote class="quote-text text-stone-900">
+                „Bo <strong>‚każdy, kto wzywa imienia <span class="divine-name">Jehowy</span>, będzie wybawiony’</strong>. Jak jednak mają wzywać Tego, w którego nie uwierzyli? I jak mają uwierzyć w Tego, o którym nie słyszeli?” (Rz 10:13, 14).
+              </blockquote>
+            </div>
+
+            <!-- Werset 4 -->
+            <div class="bg-[#EDF3FA]/80 rounded-xl p-4 border-l-4 border-[#2A528A]">
+              <div class="flex items-center justify-between mb-1">
+                <span class="font-bold text-[#1D3B66] text-sm sm:text-base">Jeremiasza 23:27 (Potępienie prób zatarcia imienia Bożego)</span>
+                <a href="https://www.jw.org/pl/szukaj/?q=Jeremiasza+23%3A27&link=%2Fresults%2FP%2Fall%3Fsort%3Drel%26q%3D" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-[#2A528A] underline">JW.ORG ↗</a>
+              </div>
+              <blockquote class="quote-text text-stone-900">
+                „Myślą oni, że za pomocą snów, które jeden opowiada drugiemu, <strong>sprawią, iż mój lud zapomni o moim imieniu, tak jak ich ojcowie zapomnieli o moim imieniu przez Baala</strong>” (por. <em>Baal</em> – dosł. „pan / właściciel”).
+              </blockquote>
+            </div>
+
+            <!-- Werset 5 -->
+            <div class="bg-[#EDF3FA]/80 rounded-xl p-4 border-l-4 border-[#2A528A]">
+              <div class="flex items-center justify-between mb-1">
+                <span class="font-bold text-[#1D3B66] text-sm sm:text-base">Mateusza 6:9 oraz Jana 17:6, 26 (Przykład Jezusa Chrystusa)</span>
+                <a href="https://www.jw.org/pl/szukaj/?q=Mateusza+6%3A9+oraz+Jana+17%3A6%2C+26&link=%2Fresults%2FP%2Fall%3Fsort%3Drel%26q%3D" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-[#2A528A] underline">JW.ORG ↗</a>
+              </div>
+              <blockquote class="quote-text text-stone-900">
+                „Macie więc modlić się w ten sposób: ‚Nasz Ojcze w niebiosach, <strong>niech będzie uświęcone Twoje imię</strong>’” (Mt 6:9).<br/>
+                „<strong>Objawiłem Twoje imię</strong> ludziom, których mi dałeś ze świata (...) <strong>Dałem im poznać Twoje imię i nadal będę dawał je poznać</strong>” (Jana 17:6, 26).
+              </blockquote>
+            </div>
+
+            <!-- Werset 6 -->
+            <div class="bg-[#EDF3FA]/80 rounded-xl p-4 border-l-4 border-[#2A528A]">
+              <div class="flex items-center justify-between mb-1">
+                <span class="font-bold text-[#1D3B66] text-sm sm:text-base">Izajasza 12:4 i Malachiasza 3:16 (Rozgłaszanie i rozmyślanie o imieniu)</span>
+                <a href="https://www.jw.org/pl/szukaj/?q=Izajasza+12%3A4+i+Malachiasza+3%3A16&link=%2Fresults%2FP%2Fall%3Fsort%3Drel%26q%3D" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-[#2A528A] underline">JW.ORG ↗</a>
+              </div>
+              <blockquote class="quote-text text-stone-900">
+                „<strong>Składajcie podziękowania <span class="divine-name">Jehowie</span>, wzywajcie Jego imienia</strong> (...) Przypominajcie, że Jego imię jest wywyższone” (Iz 12:4).<br/>
+                „A przed Nim zaczęto spisywać księgę pamięci dla tych, którzy boją się <span class="divine-name">Jehowy</span> i <strong>którzy rozmyślają nad Jego imieniem</strong>” (Mal 3:16).
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WYSZUKIWARKA -->
+  <section id="wyszukiwarka" class="max-w-7xl mx-auto w-full px-3 sm:px-6 mt-4 z-20">
+    <div class="bg-white rounded-2xl border-2 border-stone-300 shadow-md p-4 sm:p-6">
+      <label for="searchInput" class="block text-sm sm:text-base font-bold text-stone-800 mb-2">
+        🔍 Wyszukaj tytuł utworu (np. „Mąż z Nazaretu”), nazwisko autora, tłumacza lub fragment cytatu:
+      </label>
+      <div class="relative flex items-center">
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Wpisz np. Mąż z Nazaretu, Imprimatur, Wojtyła, Kowalska, Mickiewicz, Słowacki, Faraon, Budny..."
+          class="w-full pl-4 pr-28 py-3.5 rounded-xl bg-stone-50 border-2 border-stone-300 text-stone-900 placeholder-stone-500 text-base sm:text-lg font-medium focus:outline-none focus:border-[#8C5A2B] focus:bg-white transition"
+        />
+        <button
+          id="clearSearchBtn"
+          type="button"
+          onclick="resetAllFilters()"
+          class="hidden absolute right-2.5 px-3.5 py-2 rounded-lg bg-stone-200 hover:bg-stone-300 text-stone-800 text-xs sm:text-sm font-bold transition"
+        >
+          Wyczyść
+        </button>
+      </div>
+
+      <!-- FILTRY DZIAŁU I EPOKI -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+        <div>
+          <label for="genreSelect" class="block text-xs sm:text-sm font-bold text-stone-700 mb-1">
+            Dział / Rodzaj literacki:
+          </label>
+          <select id="genreSelect" onchange="applyFilters()" class="w-full px-3.5 py-3 rounded-xl bg-stone-100 border border-stone-300 text-stone-900 font-semibold text-sm sm:text-base">
+            <option value="all">Wszystkie działy i gatunki</option>
+            <option value="Poezja">Poezja i poematy</option>
+            <option value="Proza">Proza (powieści, nowele, wspomnienia)</option>
+            <option value="Dramat">Dramaty i utwory sceniczne</option>
+            <option value="Przekład na j. polski">Przekłady na język polski (np. „Mąż z Nazaretu”, „Raj utracony”)</option>
+            <option value="Przekład Biblii">Przekłady Biblii i publikacje teologiczne (z Imprimatur)</option>
+            <option value="Esej / Historia">Esej, historia, religioznawstwo i publicystyka</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="eraSelect" class="block text-xs sm:text-sm font-bold text-stone-700 mb-1">
+            Epoka literacka:
+          </label>
+          <select id="eraSelect" onchange="applyFilters()" class="w-full px-3.5 py-3 rounded-xl bg-stone-100 border border-stone-300 text-stone-900 font-semibold text-sm sm:text-base">
+            <option value="all">Wszystkie epoki (XVI–XX wiek)</option>
+            <option value="Renesans i Barok">Renesans i Barok (XVI–XVII w.)</option>
+            <option value="Oświecenie i Romantyzm">Oświecenie i Romantyzm (XVIII – poł. XIX w.)</option>
+            <option value="Pozytywizm i Młoda Polska">Pozytywizm i Młoda Polska (2 poł. XIX – pocz. XX w.)</option>
+            <option value="XX wiek">XX wiek (Międzywojnie i Współczesność)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- SZYBKIE PRZYCISKI POPULARNYCH WYSZUKIWAŃ -->
+      <div class="mt-4 pt-3 border-t border-stone-200 flex flex-wrap items-center gap-1.5">
+        <span class="text-xs font-bold text-stone-600 uppercase tracking-wider mr-1">Popularne:</span>
+        <button onclick="quickSearch('Mąż z Nazaretu')" class="px-3 py-1.5 rounded-lg bg-amber-200/90 hover:bg-amber-300 text-amber-950 text-xs sm:text-sm font-bold transition">⭐ Mąż z Nazaretu (Szalom Asz)</button>
+        <button onclick="quickSearch('Imprimatur')" class="px-3 py-1.5 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-950 text-xs sm:text-sm font-bold transition">✝️ Katolickie Imprimatur</button>
+        <button onclick="quickSearch('Wojtyła')" class="px-3 py-1.5 rounded-lg bg-stone-200/80 hover:bg-stone-300 text-stone-900 text-xs sm:text-sm font-semibold transition">Karol Wojtyła (Jan Paweł II)</button>
+        <button onclick="quickSearch('Kowalska')" class="px-3 py-1.5 rounded-lg bg-stone-200/80 hover:bg-stone-300 text-stone-900 text-xs sm:text-sm font-semibold transition">św. Faustyna Kowalska</button>
+        <button onclick="quickSearch('Mickiewicz')" class="px-3 py-1.5 rounded-lg bg-stone-200/80 hover:bg-stone-300 text-stone-900 text-xs sm:text-sm font-semibold transition">Adam Mickiewicz</button>
+        <button onclick="quickSearch('Słowacki')" class="px-3 py-1.5 rounded-lg bg-stone-200/80 hover:bg-stone-300 text-stone-900 text-xs sm:text-sm font-semibold transition">Juliusz Słowacki</button>
+        <button onclick="quickSearch('Budny')" class="px-3 py-1.5 rounded-lg bg-stone-200/80 hover:bg-stone-300 text-stone-900 text-xs sm:text-sm font-semibold transition">Szymon Budny (1572/1574)</button>
+      </div>
+
+      <!-- PASEK ALFABETYCZNY -->
+      <div class="mt-4 pt-3 border-t border-stone-200">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs font-bold text-stone-600 uppercase tracking-wider">Filtruj według nazwiska:</span>
+          <span id="resultsCounter" class="text-xs sm:text-sm font-bold text-[#8C5A2B]">Wyświetlono: 125 pozycji</span>
+        </div>
+        <div id="alphabetBar" class="flex flex-wrap gap-1.5"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KARTY AUTORÓW I DZIEŁ -->
+  <main class="max-w-7xl mx-auto w-full px-3 sm:px-6 py-6 flex-1">
+    <div id="cardsContainer" class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6"></div>
+
+    <div id="emptyState" class="hidden bg-white rounded-2xl border border-stone-300 p-8 text-center my-6">
+      <p class="font-display text-2xl font-bold text-stone-800 mb-2">Nie znaleziono pasujących utworów</p>
+      <p class="text-stone-600 mb-4">Spróbuj wpisać inną frazę lub wyczyść filtry.</p>
+      <button onclick="resetAllFilters()" class="touch-btn px-5 py-2.5 rounded-xl bg-[#8C5A2B] text-white font-bold">
+        Pokaż wszystkie pozycje
+      </button>
+    </div>
+  </main>
+
+  <!-- SEKCJA ŹRÓDEŁ Z JW.ORG -->
+  <section id="jw-sources" class="bg-[#EDF3FA] border-y-2 border-blue-200 py-10 px-3 sm:px-6 mt-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-6">
+        <span class="inline-block px-3 py-1 rounded-md bg-[#2A528A] text-white text-xs font-bold uppercase tracking-wider mb-2">
+          Materiały źródłowe i biblijne
+        </span>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-stone-900">
+          Źródła i opracowania z serwisu JW.ORG
+        </h2>
+        <p class="text-stone-700 text-base sm:text-lg mt-1">
+          Bezpośrednie odnośniki do artykułów i dodatków biblijnych omawiających historię oraz znaczenie imienia Bożego <strong>Jehowa</strong> (tetragram <strong>יהוה</strong>) w przekładach Pisma Świętego i kulturze.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <article class="bg-white rounded-2xl border border-blue-200 p-5 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-[#2A528A] uppercase">Pismo Święte w Przekładzie Nowego Świata</span>
+            <h3 class="font-display font-bold text-2xl text-stone-900 mt-1 mb-2">Dodatek A4: Imię Boże w Pismach Hebrajskich</h3>
+            <p class="text-stone-700 text-sm sm:text-base mb-4">
+              Omówienie występowania tetragramu (יהוה) blisko 7000 razy w tekstach oryginalnych oraz historia użycia formy „Jehowa” w polskich przekładach Biblii (m.in. Biblia brzeska 1563, Biblia nieświeska 1572, Biblia gdańska 1632).
+            </p>
+          </div>
+          <a href="https://www.jw.org/pl/biblioteka/biblia/biblia-wydanie-do-studium/dodatek-a/tetragram-imie-boze/" target="_blank" rel="noopener noreferrer" class="touch-btn w-full rounded-xl bg-[#2A528A] hover:bg-[#1D3B66] text-white font-bold text-sm sm:text-base px-4 py-3 transition">
+            Otwórz Dodatek A4 na JW.ORG ↗
+          </a>
+        </article>
+
+        <article class="bg-white rounded-2xl border border-blue-200 p-5 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-[#2A528A] uppercase">Pismo Święte w Przekładzie Nowego Świata</span>
+            <h3 class="font-display font-bold text-2xl text-stone-900 mt-1 mb-2">Dodatek A5: Imię Boże w Chrześcijańskich Pismach Greckich</h3>
+            <p class="text-stone-700 text-sm sm:text-base mb-4">
+              Wyjaśnienie, dlaczego wielu tłumaczy Nowego Testamentu (w tym Szymon Budny już w 1574 roku w przekładzie Ewangelii Mateusza) używało imienia Jehowa.
+            </p>
+          </div>
+          <a href="https://www.jw.org/pl/biblioteka/biblia/biblia-wydanie-do-studium/dodatek-a/imie-boze-chrzescijanskie-pisma-greckie/" target="_blank" rel="noopener noreferrer" class="touch-btn w-full rounded-xl bg-[#2A528A] hover:bg-[#1D3B66] text-white font-bold text-sm sm:text-base px-4 py-3 transition">
+            Otwórz Dodatek A5 na JW.ORG ↗
+          </a>
+        </article>
+
+        <article class="bg-white rounded-2xl border border-blue-200 p-5 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-[#2A528A] uppercase">Wnikliwe poznawanie Pism (WOL.JW.ORG)</span>
+            <h3 class="font-display font-bold text-2xl text-stone-900 mt-1 mb-2">Hasło encyklopedyczne: „Jehowa”</h3>
+            <p class="text-stone-700 text-sm sm:text-base mb-4">
+              Szczegółowa analiza filologiczna, archeologiczna i historyczna dotycząca imienia Bożego, jego znaczenia oraz wymowy w językach nowożytnych.
+            </p>
+          </div>
+          <a href="https://www.jw.org/pl/biblioteka/ksi%C4%85%C5%BCki/Wnikliwe-poznawanie-Pism/Jehowa/" target="_blank" rel="noopener noreferrer" class="touch-btn w-full rounded-xl bg-[#2A528A] hover:bg-[#1D3B66] text-white font-bold text-sm sm:text-base px-4 py-3 transition">
+            Czytaj w Bibliotece WOL.JW.ORG ↗
+          </a>
+        </article>
+
+        <article class="bg-white rounded-2xl border border-blue-200 p-5 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-[#2A528A] uppercase">JW.ORG • Nauki biblijne</span>
+            <h3 class="font-display font-bold text-2xl text-stone-900 mt-1 mb-2">Kim jest Jehowa? Jakie ma imię Bóg?</h3>
+            <p class="text-stone-700 text-sm sm:text-base mb-4">
+              Przystępne zestawienie wersetów biblijnych (Wyjścia 6:3; Psalm 83:18; Izajasza 42:8) pokazujących rolę osobistego imienia Boga.
+            </p>
+          </div>
+          <a href="https://www.jw.org/pl/nauki-biblijne/pytania/imi%C4%99-bo%C5%BCe/" target="_blank" rel="noopener noreferrer" class="touch-btn w-full rounded-xl bg-[#2A528A] hover:bg-[#1D3B66] text-white font-bold text-sm sm:text-base px-4 py-3 transition">
+            Przejdź do artykułu na JW.ORG ↗
+          </a>
+        </article>
+
+        <article class="bg-white rounded-2xl border border-blue-200 p-5 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-[#2A528A] uppercase">Biblioteka Internetowa Strażnicy</span>
+            <h3 class="font-display font-bold text-2xl text-stone-900 mt-1 mb-2">Watykańska dyrektywa z 2008 r. a imię Boże</h3>
+            <p class="text-stone-700 text-sm sm:text-base mb-4">
+              Artykuły w Bibliotece Strażnicy omawiające decyzję Watykanu z 2008 roku o wycofaniu imienia Bożego z liturgii katolickiej w świetle Pisma Świętego.
+            </p>
+          </div>
+          <a href="https://www.jw.org/pl/biblioteka/czasopisma/wp20090401/Watykan-usi%C5%82uje-wyeliminowa%C4%87-z-u%C5%BCycia-imi%C4%99-Boga/" target="_blank" rel="noopener noreferrer" class="touch-btn w-full rounded-xl bg-[#2A528A] hover:bg-[#1D3B66] text-white font-bold text-sm sm:text-base px-4 py-3 transition">
+            Zobacz artykuły na WOL.JW.ORG ↗
+          </a>
+        </article>
+
+        <article class="bg-white rounded-2xl border border-amber-300 p-5 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-amber-900 uppercase">Polskie Biblioteki Cyfrowe</span>
+            <h3 class="font-display font-bold text-2xl text-stone-900 mt-1 mb-2">Skany starodruków (FBC / WBC / DBC)</h3>
+            <p class="text-stone-700 text-sm sm:text-base mb-4">
+              Dostęp do oryginalnych skanów Biblii Nieświeskiej (1572), Nowego Testamentu Budnego (1574), Psałterza Dawidowego Kochanowskiego i Biblii Wujka (1599).
+            </p>
+          </div>
+          <a href="https://fbc.pionier.net.pl/" target="_blank" rel="noopener noreferrer" class="touch-btn w-full rounded-xl bg-[#8C5A2B] hover:bg-amber-900 text-white font-bold text-sm sm:text-base px-4 py-3 transition">
+            Federacja Bibliotek Cyfrowych ↗
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDEKS CHRONOLOGICZNY (1520–2004) -->
+  <section id="chronologia" class="max-w-7xl mx-auto w-full px-3 sm:px-6 py-10">
+    <div class="bg-white rounded-2xl border border-stone-300 p-5 sm:p-8 shadow-sm">
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-stone-900 mb-2">
+        Wykaz chronologiczny autorów i tłumaczy (1520–2004)
+      </h2>
+      <p class="text-stone-700 text-sm sm:text-base mb-5">
+        Kliknij wybrane nazwisko, aby od razu wyświetlić kartę z jego utworami i cytatami.
+      </p>
+      <div id="timelineGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5"></div>
+    </div>
+  </section>
+
+  <footer class="bg-stone-900 text-stone-300 py-8 px-4 sm:px-6 mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+      <div>
+        <p class="font-display font-bold text-xl text-white">Jehowa – Imię Boga w literaturze polskiej do końca XX wieku</p>
+        <p class="text-stone-400 mt-1">Literatura polska • Przekłady na język polski („Mąż z Nazaretu”) • Dekret z 2008 r. a Biblia • Źródła JW.ORG</p>
+      </div>
+      <a href="#" class="touch-btn px-4 py-2 rounded-xl bg-stone-800 hover:bg-stone-700 text-white font-bold transition">
+        ↑ Wróć na górę
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    const AUTHORS_DB = [
+      // === MĄŻ Z NAZARETU (SZALOM ASZ / PRZEKŁ. MICHAŁ FRIEDMAN) ===
+      {
+        name: "Michał Friedman (Szalom Asz)",
+        years: "1913–2006",
+        sortYear: 1913,
+        role: "polski pedagog i tłumacz z języka hebrajskiego i jidysz – przekład powieści Szaloma Asza „Mąż z Nazaretu” (Wydawnictwo Dolnośląskie, Wrocław 1990)",
+        era: "XX wiek",
+        genre: "Przekład na j. polski",
+        works: [
+          {
+            title: "Szalom Asz – Mąż z Nazaretu (powieść, przełożył Michał Friedman, Część Pierwsza, rozdz. IV i dalsze)",
+            quote: "Ich Bóg, Jehowa – a mają tylko tego jednego – interesuje się wyłącznie Żydami. (...) Modlił się do wszechmogącego Jehowy z całą żarliwością swego serca... (W powieści „Mąż z Nazaretu” imię Boga w formie Jehowa występuje wielokrotnie)."
+          }
+        ]
+      },
+
+      // === POZOSTALI TŁUMACZE Z DZIAŁU „PRZEKŁADY NA J. POLSKI” (index2.htm) ===
+      { name: "Maciej Słomczyński (John Milton / William Blake)", years: "1922–1998", sortYear: 1922, role: "polski tłumacz i pisarz – przekład poematu Johna Miltona „Raj utracony” (1986) oraz poezji Williama Blake'a", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "John Milton – Raj utracony (przełożył Maciej Słomczyński, Księga I i VII)", quote: "...który śmiał podnieść bezbożny oręż przeciwko tronowi i monarchii Jehowy... / ...jak wielki jesteś, o Jehowo, na wysokościach swoich, a Twe zamysły są nieprzeniknione!" }] },
+      { name: "Maria Skibniewska (Lloyd C. Douglas)", years: "1904–1984", sortYear: 1904, role: "polska tłumaczka literatury anglojęzycznej – przekład powieści Lloyda C. Douglasa „Szata” (Instytut Wydawniczy PAX, Warszawa 1988)", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Lloyd C. Douglas – Szata (powieść, przełożyła Maria Skibniewska)", quote: "Polski przekład głośnej powieści biblijnej „Szata” (The Robe), w której wielokrotnie pojawia się imię Boże Jehowa." }] },
+      { name: "Adam Szymanowski (Umberto Eco)", years: "1938–2001", sortYear: 1938, role: "polski tłumacz – przekład powieści Umberto Eco „Imię róży” (PIW, Warszawa)", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Umberto Eco – Imię róży (powieść, przełożył Adam Szymanowski)", quote: "Przekład powieści „Imię róży” na język polski z odwołaniem do imienia Bożego Jehowa." }] },
+      { name: "Wisława Szymborska (Icyk Manger)", years: "1923–2012", sortYear: 1923, role: "polska poetka, laureatka Nagrody Nobla – przekład wiersza Icyka Mangera „Casanova” (PIW, Warszawa 1983)", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Icyk Manger – Casanova (wiersz w „Antologii poezji żydowskiej”, przekład Wisława Szymborska)", quote: "Poetycki przekład utworu Icyka Mangera na język polski z użyciem imienia Jehowa." }] },
+      { name: "Lech Jęczmyk (Kurt Vonnegut Jr.)", years: "ur. 1936", sortYear: 1936, role: "polski tłumacz i eseista – przekład powieści Kurta Vonneguta „Kocia kołyska” (PIW, Warszawa 1991)", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Kurt Vonnegut Jr. – Kocia kołyska (powieść, przełożył Lech Jęczmyk)", quote: "Przekład powieści Kurta Vonneguta na język polski zawierający imię Boże Jehowa." }] },
+      { name: "Bronisław Zieliński (Thor Heyerdahl)", years: "1914–1985", sortYear: 1914, role: "polski tłumacz literatury anglojęzycznej – przekład książki Thora Heyerdahla „Fatu Hiva” (Iskry, Warszawa 1978)", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Thor Heyerdahl – Fatu Hiva (przełożył Bronisław Zieliński)", quote: "Polski przekład książki podróżniczej Thora Heyerdahla z użyciem imienia Jehowa." }] },
+      { name: "Grzegorz Musiał (Allen Ginsberg)", years: "ur. 1952", sortYear: 1952, role: "polski poeta, prozaik i tłumacz literatury amerykańskiej", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Allen Ginsberg – Skowyt i inne wiersze (poemat „Skowyt”, przekład Grzegorz Musiał, Bydgoszcz 1984)", quote: "Polski przekład poematu „Skowyt” Allena Ginsberga z przywołaniem imienia Jehowa." }] },
+      { name: "Stanisław Łempicki (Henryk Heine)", years: "1886–1947", sortYear: 1886, role: "polski historyk literatury, pisarz i tłumacz", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Henryk Heine – Baltazar (Poezje wybrane, przełożył Stanisław Łempicki, Ossolineum 1951)", quote: "Przekład ballady „Baltazar” Henryka Heinego, w której król babiloński bluźni przeciwko Jehowie." }] },
+      { name: "Leopold Lewin (Johann Wolfgang Goethe)", years: "1910–1995", sortYear: 1910, role: "polski poeta i tłumacz poezji niemieckiej i rosyjskiej", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Johann Wolfgang Goethe – Dywan Zachodu i Wschodu: Dobrze jest (przełożył Leopold Lewin, PIW 1963)", quote: "Przekład poezji J. W. Goethego na język polski z użyciem imienia Bożego Jehowa." }] },
+      { name: "Włodzimierz Słobodnik (Anatolij Winogradow)", years: "1900–1991", sortYear: 1900, role: "polski poeta i tłumacz literatury rosyjskiej, francuskiej i hiszpańskiej", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Anatolij Winogradow – Potępienie Paganiniego (powieść, tłumaczył Włodzimierz Słobodnik, KiW 1985)", quote: "Przekład powieści biograficznej o Niccolò Paganinim z użyciem formy Jehowa." }] },
+      { name: "Stefan Flukowski (Anatol France)", years: "1902–1972", sortYear: 1902, role: "polski poeta, prozaik, dramaturg i tłumacz", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Anatol France – Bunt aniołów (powieść, przełożył Stefan Flukowski, Czytelnik 1986)", quote: "Polski przekład powieści „Bunt aniołów” Anatole'a France'a, w której wielokrotnie występuje imię Jehowa." }] },
+      { name: "Jan Sten [Ludwik Bruner] (Anatol France)", years: "1871–1913", sortYear: 1871, role: "polski krytyk literacki, tłumacz i chemik", era: "Pozytywizm i Młoda Polska", genre: "Przekład na j. polski", works: [{ title: "Anatol France – Gospoda pod Królową Gęsią Nóżką (przełożył Jan Sten, Czytelnik 1957)", quote: "Przekład powieści Anatole'a France'a na język polski z użyciem imienia Jehowa." }] },
+      { name: "Wacław Rogowicz (Mikołaj Ostrowski)", years: "1879–1960", sortYear: 1879, role: "polski powieściopisarz, publicysta i tłumacz literatury europejskiej", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Mikołaj Ostrowski – Jak hartowała się stal (przełożył Wacław Rogowicz, Iskry 1977)", quote: "Polski przekład powieści z zachowaniem formy imienia Bożego Jehowa." }] },
+      { name: "Felicja Nossig (Upton Sinclair)", years: "1855–1939", sortYear: 1855, role: "polska publicystka, socjolożka i tłumaczka", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Upton Sinclair – Jim Higgins (powieść, przekład dr Felicja Nossig, KiW 1949)", quote: "Przekład powieści Uptona Sinclaira na język polski z użyciem imienia Jehowa." }] },
+      { name: "Joanna Salamon (Marina Cwietajewa)", years: "1932–2001", sortYear: 1932, role: "polska poetka i tłumaczka poezji rosyjskiej", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Marina Cwietajewa – Poemat Kresu (przekład Joanna Salamon, Wydawnictwo Literackie 1977)", quote: "Polski przekład poematu Mariny Cwietajewej zawierający imię Boże Jehowa." }] },
+      { name: "Robert Stiller (Hans Hellmut Kirst)", years: "ur. 1928", sortYear: 1928, role: "polski tłumacz, pisarz i językoznawca", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Hans Hellmut Kirst – Niezwykłe wesele w Bärenwalde (przekład Robert Stiller, Interart 1995)", quote: "Przekład powieści H. H. Kirsta na język polski z użyciem imienia Jehowa." }] },
+      { name: "Józef Jankowski", years: "1865–1935", sortYear: 1865, role: "polski poeta, pisarz i tłumacz", era: "Pozytywizm i Młoda Polska", genre: "Przekład na j. polski", works: [{ title: "Przekłady poetyckie i literackie na język polski", quote: "Tłumaczenia z literatury obcej z użyciem formy imienia Bożego Jehowa." }] },
+      { name: "Leo Belmont", years: "1865–1941", sortYear: 1865, role: "polski eseista, poeta, prozaik i tłumacz", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Przekład i opracowanie dzieł z literatury obcej", quote: "Polskie przekłady literackie zawierające imię Boże w formie Jehowa." }] },
+      { name: "Jerzy Bohdan Rychliński", years: "1892–1974", sortYear: 1892, role: "polski prozaik marynista, tłumacz literatury anglosaskiej", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Przekłady prozy anglojęzycznej na język polski", quote: "Polskie tłumaczenia powieści anglosaskich z zachowaniem imienia Jehowa." }] },
+      { name: "Henryk Krzeczkowski", years: "1921–1985", sortYear: 1921, role: "polski tłumacz, eseista i historyk kultury", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Przekłady literatury anglosaskiej i historycznej na język polski", quote: "Polskie przekłady z użyciem formy imienia Bożego Jehowa." }] },
+      { name: "Zofia Kierszys", years: "1921–2000", sortYear: 1921, role: "polska tłumaczka literatury angielskiej i amerykańskiej", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Przekłady prozy amerykańskiej i angielskiej na język polski", quote: "Polskie przekłady powieści anglojęzycznych zawierające imię Jehowa." }] },
+      { name: "Jerzy Pomianowski [Michał Kaniowski]", years: "ur. 1921", sortYear: 1921, role: "polski pisarz, eseista, krytyk teatralny i tłumacz literatury rosyjskiej (m.in. Izaaka Babla)", era: "XX wiek", genre: "Przekład na j. polski", works: [{ title: "Przekłady prozy rosyjskiej (Izaak Babel) na język polski", quote: "Tłumaczenia opowiadań i dramatów z zachowaniem imienia Bożego Jehowa." }] },
+
+      // === LITERATURA POLSKA I PRZEKŁADY BIBLII (102 AUTORÓW Z GŁÓWNEJ STRONY) ===
+      { name: "Jarosław Abramow-Newerly", years: "ur. 1933", sortYear: 1933, role: "polski pisarz, kompozytor, autor tekstów piosenek i słuchowisk radiowych", era: "XX wiek", genre: "Proza", works: [{ title: "Alianci (powieść, rozdz. XXXVIII)", quote: "Z rozkoszą żując bułkę z szynką, Kaplanowicz poczuł, że dobry Jehowe* z wolna przywraca go do życia. (*Jehowe – Bóg)" }] },
+      { name: "Bogusław Adamowicz", years: "1870–1944", sortYear: 1870, role: "polski poeta, prozaik i malarz okresu Młodej Polski", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [
+        { title: "Góra Mitrydata (wiersz)", quote: "O Agni, o prawieczne Fatum, o Jehowo, / Uciszcie szał zagłady, wy, coście stwarzali!..." },
+        { title: "Krew Abla do Jehowy (wiersz)", quote: "Krew Abla do Jehowy: / Kain był pyszny i srogie miał serce, / Abel cnotliwy i godzien nagrody..." },
+        { title: "Nie wiadomo dlaczego (wiersz)", quote: "I gubię się, i szukam jakiejś okruszyny / Tworzywa spod Twej kielni odprysłej, Jehowo, / W dniu, gdyś stawiał firmament..." }
+      ]},
+      { name: "Adam Asnyk", years: "1838–1897", sortYear: 1838, role: "polski poeta i dramatopisarz okresu pozytywizmu", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [{ title: "Do ... (wiersz)", quote: "Lepiej ci było wraz z bracią Ablową / Przeżuwać życie na pokory zębie, / Kochać na rozkaz i wierzyć na słowo, / Paląc na stosie ofiarnym gołębie, / Niźli do boju stanąwszy z Jehową, / Przeglądać bytu i nicestwia głębie." }] },
+      { name: "Bogumił Aspis", years: "1842–1898", sortYear: 1842, role: "polski poeta i dramatopisarz", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [
+        { title: "Salvater (poemat)", quote: "Że często tam Bóg zwie się nie Bóg, lecz Jehowa, / Rozum zwie się tam jakimś fernunftem, ja – jaźnią." },
+        { title: "Sulamita (poemat – dramat wschodni w pieśniach)", quote: "Lecz śliczną tak nie na to z rąk Jehowy / Mąż dziewkę wziął, by z nią jak z żoną żył." }
+      ]},
+      { name: "Mirosław Azembski", years: "1923–1988", sortYear: 1923, role: "polski reportażysta, dziennikarz i publicysta", era: "XX wiek", genre: "Esej / Historia", works: [{ title: "Sprzymierzeni z Jehową (opowieści biblijne)", quote: "Głównym bohaterem Biblii jest... bóg owego plemienia (a później całego narodu), Jehowa. W mitologii greckiej na przykład występuje wielu bogów: tu jest inaczej: zawsze spotykamy tego samego Jehowę, a inne bóstwa, takie jak Baal i Astarte pojawiają się raczej w niektórych opowiadaniach biblijnych i zawsze tylko na uboczu." }] },
+      { name: "Feliks Brodowski", years: "1864–1934", sortYear: 1864, role: "polski pisarz, krytyk literacki, publicysta i nowelista", era: "Pozytywizm i Młoda Polska", genre: "Proza", works: [
+        { title: "Dziecię Symchy (nowela)", quote: "To Symcha wstawiał się, Symcha przemawiał za nią. Może nie do samego Jehowy, może do najniższego z jego sług, ale to on przemawiał i z dobrym skutkiem." },
+        { title: "Strącone Liście (nowele)", quote: "Natel patrzy na ozłocone śmiecie, na brylanty rozrzucone po zabłoconym lodzie i zdaje mu się, że to czyni sam Jehowa..." }
+      ]},
+      { name: "Jerzy Bronisławski", years: "ur. 1930", sortYear: 1930, role: "polski pisarz, prawnik, pilot", era: "XX wiek", genre: "Proza", works: [{ title: "Zanim przyjdą o świcie (powieść)", quote: "Rebe – powiedział starcowi z brodą – weź osiemset marek, zanieś do finansamtu i powiedz, że zebraliście na bogobojnego Żyda, który stoi nad grobem i nie chce stanąć przed obliczem Jehowy z tak ciężkim brzemieniem." }] },
+      { name: "Szymon Budny", years: "1550–1593", sortYear: 1550, role: "polski działacz Reformacji, biblista i tłumacz Biblii Nieświeskiej (1572) oraz Nowego Testamentu (1574)", era: "Renesans i Barok", genre: "Przekład Biblii", works: [
+        { title: "Biblia Nieświeska (1572) – Pierwsze księgi Mojżeszowe (Rodzaju 2:4, 7–8)", quote: "Te (są) zrodzenia niebios y ziemi gdy ie stworzono, w dzień ktore ucjynił Jehowa Bog ziemie y niebiosa. (...) A(że) utworzył Jehowa Bog człowieka z prochu ziemie, y wedchnoł w oblicze ieo dychanie żywota... I nasadził Jehowa Bog sad w Edenie na wschod..." },
+        { title: "Nowy Testament (1574) – Ewangelion wedle Mattheusza 1:20, 22, 24", quote: "A gdy to myślił, oto anioł Jehowy jawił się mu weśnie mowiąc: Josefie synu Dawidow, nieboy się wziąć Maryą żonę twą... A wszytko to było żeby się spełniło co rzeczono od Jehowy przez Proroka..." }
+      ]},
+      { name: "Jerzy Cepik", years: "ur. 1929", sortYear: 1929, role: "polski prozaik historyczny", era: "XX wiek", genre: "Proza", works: [{ title: "Słowianie (powieść historyczna)", quote: "W Palestynie trwało państwo Dawida i Salomona, państwo pysznych wrogów pokoju, Izraelitów, gdzie kapłani jak sępy składać będą dymiące ofiary (...) Jehowie." }] },
+      { name: "Adam Jerzy Czartoryski", years: "1770–1861", sortYear: 1770, role: "polski książę, mąż stanu, prezes Rządu Narodowego, pisarz i mecenas sztuki", era: "Oświecenie i Romantyzm", genre: "Poezja", works: [{ title: "Bard polski (poemat)", quote: "Za cóż to? – rzekł – za jakież ojców ciężkie zbrodnie / Gniew Jehowy dosięga nas, nieszczęsne syny?" }] },
+      { name: "Teodor Czerwiński", years: "1841–1932", sortYear: 1841, role: "polski ksiądz katolicki, kanonik, prałat, dziekan kapituły kieleckiej", era: "Pozytywizm i Młoda Polska", genre: "Przekład Biblii", works: [{ title: "Drzewo krzyża Naprawcy rodzaju ludzkiego / Zbawiciela rodzaju ludzkiego (Za pozwoleniem Władzy Duchownej)", quote: "Otóż najsławniejszy ich król, syn Dawida, psalmisty Pańskiego, Salomon, postanowił na cześć Jehowy – tak w swej mowie nazywali P. Boga – wznieść (zbudować) świątynię, godną Pana nieba i ziemi." }] },
+      { name: "Wanda Dalecka", years: "1862–1932", sortYear: 1862, role: "polska pisarka i tłumaczka", era: "Pozytywizm i Młoda Polska", genre: "Proza", works: [{ title: "Nowy Abraham (nowela)", quote: "Jak tam pięknie być musi w tym przybytku jasności i tonów, gdzie przed płomiennym tronem Jehowy przelatują pułki aniołów, nucąc hymn uroczysty, śmigając złotymi skrzydłami!" }] },
+      { name: "Jerzy Dowiat", years: "1920–1982", sortYear: 1920, role: "polski historyk", era: "XX wiek", genre: "Esej / Historia", works: [{ title: "Historia dla klasy I technikum (podręcznik szkolny)", quote: "Religia Żydów, zwana też mozaizmem, czyli religią mojżeszową, od imienia ich legendarnego wodza i prawodawcy Mojżesza, dopuszczała tylko kult Jehowy, opiekuna i obrońcy swego ludu." }] },
+      { name: "Ludwik Eminowicz", years: "1880–1946", sortYear: 1880, role: "polski poeta i tłumacz", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [{ title: "Drabina Jakubowa (wiersz)", quote: "...gdy zwisła w bezdni, jak klatka schodowa, / by się mijali niebiańscy posłowie / po najzuchwalej wzniesionej budowie, / co wystrzeliła wzwyż, gdzie stał Jehowa." }] },
+      { name: "Arkady Fiedler", years: "1894–1985", sortYear: 1894, role: "polski prozaik, reportażysta, przyrodnik i podróżnik", era: "XX wiek", genre: "Proza", works: [{ title: "Dzikie banany (opowiadania z podróży)", quote: "Bogowie nie są dla nich tak straszni jak mściwy Jechowa dla Żydów lub krwawy Uiclipoczli dla Azteków..." }] },
+      { name: "Walenty Gadowski", years: "1861–1956", sortYear: 1861, role: "polski ksiądz katolicki i taternik", era: "Pozytywizm i Młoda Polska", genre: "Przekład Biblii", works: [{ title: "Apologetyczny Katechizm Katolicki (Nihil obstat. IMPRIMATUR)", quote: "Jam jest, którym jest, rzekł Bóg do Mojżesza (2. Mojż. 3, 14). Po hebrajsku samoistny brzmi: Jehowah, a w skrócie: Jahweh. Żydzi zwali Boga Elohim (najwyższy Majestat), albo Adonaj (Pan wszech rzeczy), albo Szaddaj (wszechmocny), a przede wszystkim Jehowah (samoistny)." }] },
+      { name: "Konstanty Ildefons Gałczyński", years: "1905–1953", sortYear: 1905, role: "polski poeta", era: "XX wiek", genre: "Poezja", works: [{ title: "Ulica szarlatanów (wiersz)", quote: "Wymyślili swe tablice szmaragdowe. / Krwią dziewicy wypisali charaktery. / Strachy w liczbach: 18, 3 i 4. / Przeklinamy Jezu-Chrysta i Jehowę." }] },
+      { name: "Stefan Giller", years: "1834–1918", sortYear: 1834, role: "polski powieściopisarz, dramaturg, poeta i tłumacz", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [{ title: "Dusza (wiersz)", quote: "Spuści promienie w rany i zapali / Całą na gwiazdę... tę zaś aniołowie / Wezmą i przypną do płaszcza Jehowie, / Do płaszcza chwały..." }] },
+      { name: "Wiktor Gomulicki", years: "1848–1919", sortYear: 1848, role: "polski poeta, powieściopisarz, eseista, badacz Warszawy", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [{ title: "El Mole Rachmim... (wiersz)", quote: "Między ziemią i niebem nie było zawiści – / Twarz Jehowy patrzyła z góry uśmiechnięta, / Błogosławiąc dolinę, ludzi i jagnięta..." }] },
+      { name: "Maria Grossek-Korycka", years: "1864–1926", sortYear: 1864, role: "polska poetka, tłumaczka i publicystka", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [{ title: "Hymn Zmartwychwstania (listopad 1918 r.)", quote: "Daj mi wytarzać pierś o Twe błękity / I dotknąć usty róż na twym posłaniu, / Iehowah!" }] },
+      { name: "Eugeniusz Iwanoyko", years: "1924–1988", sortYear: 1924, role: "polski historyk sztuki gdańskiej, profesor UAM w Poznaniu", era: "XX wiek", genre: "Esej / Historia", works: [{ title: "Sala Czerwona ratusza gdańskiego (historia sztuki, album)", quote: "Numeracje wersetów biblijnych, biblijne epizody i wszechobecne hebrajskie imię Boga – Jehowy, są nie tylko demonstracyjnym podkreśleniem roli Pisma św., ale i hołdem dla najwyższej hierarchii... Tetragram „Jehowa” w hebrajskiej pisowni występuje na wszystkich obrazach cyklu ściennego." }] },
+      { name: "Bogdan Jaxa-Ronikier", years: "1873–1956", sortYear: 1873, role: "polski literat i dramaturg", era: "XX wiek", genre: "Proza", works: [{ title: "Dzierżyński „Czerwony Kat” (powieść)", quote: "Niech Jehowie dziękuje, że życiem intrygi nie przypłacił..." }] },
+      { name: "Szczepan Jeleński", years: "1881–1949", sortYear: 1881, role: "polski inżynier i pisarz, popularyzator nauki", era: "XX wiek", genre: "Proza", works: [{ title: "Woda żywa (opowieść ewangeliczna)", quote: "Twój bliźni, to jestem ja, to wszyscy twoi bracia starsi, twoi krewni i wszyscy z naszego pokolenia Lewiego, i każdy z Izraela, kto chwali Jehowę w Jeruzalem." }] },
+      { name: "Teodor Jeske-Choiński", years: "1854–1920", sortYear: 1854, role: "polski pisarz, historyk, krytyk teatralny i literacki", era: "Pozytywizm i Młoda Polska", genre: "Esej / Historia", works: [{ title: "Henryk Heine – portret literacki (esej)", quote: "Wówczas-to, wśród bezsennych nocy, nędzny i samotny, przypomniał sobie Heine Boga swych ojców i «rozmawiał nieraz ze starym Jehową Izraela»." }] },
+      { name: "Klemens Junosza [Klemens Szaniawski]", years: "1849–1898", sortYear: 1849, role: "polski powieściopisarz i nowelista", era: "Pozytywizm i Młoda Polska", genre: "Proza", works: [{ title: "Łaciarz (nowela)", quote: "...zapadła pierś ciężko pracować zacznie i chwilowo wyda mu się, że Jehowa zbiedniał i że ma zaledwie tylko trochę powietrza..." }] },
+      { name: "Jacek Kaczmarski", years: "1957–2004", sortYear: 1957, role: "polski poeta, prozaik, piosenkarz, twórca tekstów piosenek", era: "XX wiek", genre: "Poezja", works: [
+        { title: "Ballada o spalonej synagodze (1977)", quote: "Płonie synagoga! Trzask i krzyk gardłowy! / Belki w żar się sypią, iskry w górę lecą! / Tam, w środku Żyd został! Jeszcze widać ręce! / Już czarne! O, Jehowo, za co? O, Jehowo!?" },
+        { title: "Opowieść pewnego emigranta (1987)", quote: "Jak ja powiem Jehowie – Za mną, Jahwe, stań, / Z tą Polską związanym pępowiną hańb!" }
+      ]},
+      { name: "Józef Kłos", years: "1870–1938", sortYear: 1870, role: "duchowny katolicki, Ojca św. Tajny Podkomorzy, redaktor Przewodnika Katolickiego w Poznaniu", era: "Pozytywizm i Młoda Polska", genre: "Przekład Biblii", works: [{ title: "Pismo Święte w Obrazach (Nihil obstat. Imprimatur)", quote: "Ofiarował tedy Abraham kozła i nazwał ono miejsce straszliwe: „Jehowa widzi”. (...) Lecz Jehowa czuwa nad ludem swym wybranym. Jehowa rzeczywistym był wodzem swojego ludu." }] },
+      { name: "Józef Koblański", years: "1738–1798", sortYear: 1738, role: "polski poeta i działacz edukacyjny, kanonik", era: "Oświecenie i Romantyzm", genre: "Przekład na j. polski", works: [{ title: "Modlitwa D[EO] O[PTIMO] M[AXIMO] (z Pope'a)", quote: "Ojcze powszechny, dają narody któremu / Cześć w imionach Jehowy, Jowisza i Pana, / Pierwszy rzeczy początku, bronisz oku memu, / By Twa istota chwały nie była widziana." }] },
+      { name: "Jan Kochanowski", years: "1530–1584", sortYear: 1530, role: "polski poeta okresu renesansu, sekretarz królewski", era: "Renesans i Barok", genre: "Poezja", works: [{ title: "Psałterz Dawidów – Psalm 119", quote: "Łaskawieś się ze mną obszedł wedle słów swych, Jowa – / Daj mi rozum, który ważę wielce Twoje słowa. (...) Bierz ofiarę ust mych, a mnie praw swych naucz Jowa! (...) Zakon Twój miłuję, Ty też umiłuj mię, Jowa!" }] },
+      { name: "Marian Korwin Kochanowski", years: "1847–1868", sortYear: 1847, role: "polski poeta, autor utworów scenicznych", era: "Oświecenie i Romantyzm", genre: "Poezja", works: [
+        { title: "Wspomnienie Ceuty (wiersz)", quote: "Dumny – jak na bałwanach morza wsparta nawa, / Gniewny – jak grom z prawicy ciśniony Jehowy..." },
+        { title: "Życzenie Wygnańca (wiersz)", quote: "Ażebym gdy wejdzie dzień sądu Jehowy, / Szablicą odwalił mój kamień grobowy..." }
+      ]},
+      { name: "Wespazjan Kochowski", years: "1633–1700", sortYear: 1633, role: "jeden z najwybitniejszych historyków i poetów polskiego baroku", era: "Renesans i Barok", genre: "Poezja", works: [
+        { title: "Niepróżnujące próżnowanie (Pieśń XIX i XXII)", quote: "Niech się zlękną, niech się wstydzą, / Pohańbienie swoje widzą, / Niech pozna ich harda głowa, / Żeś najwyższy Ty, Jehowa! (...) Dopieroż człowiek winien z każdej miary / Wysławiać wzięte od Jehowy dary." },
+        { title: "Psalmodya polska (1695 – Psalm VII, VIII, XXVI)", quote: "Owom ja Jehowa jest! który na wolą puszczam, i w niewolę podaję; ja z Egiptu wyswobodzić mogę... Ztąd niech poznają, że Pan Imie twoje, o Jehowa!" }
+      ]},
+      { name: "Leszek Kołakowski", years: "1927–2009", sortYear: 1927, role: "polski filozof, eseista, publicysta i prozaik", era: "XX wiek", genre: "Esej / Historia", works: [
+        { title: "Klucz niebieski albo opowieści budujące z historii świętej zaczerpnięte", quote: "W najwyższej sferze niebios mieścił się wytworny bar, gdzie Jehowa zwykł wysłuchiwać sprawozdań z ziemi od swoich wysłanników... Salomon bowiem poczynał sobie lekkomyślnie i martwił Jehowę nad wyraz." },
+        { title: "Bajki różne – Żona Lota czyli uroki przeszłości", quote: "Otóż Jehowa, rozdrażniony filozofią Sodomitów, postanowił spalić całe miasto..." }
+      ]},
+      { name: "Maria Konopnicka", years: "1842–1910", sortYear: 1842, role: "polska poetka i nowelistka okresu realizmu", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [{ title: "Mojżesz (wiersz)", quote: "A blade widmo umarłego słońca / W koronie swoich przygaszonych blasków / Z grobu chmur czarnych powstaje... – Jehowa!... / Jehowa!... Wróć się!... (...) W dali gdzieś łuna gore piorunowa... / Oto czuję twoje tchnienie... / Idziesz... Jehowa!... Jehowa!..." }] },
+      { name: "Władysław Kopaliński", years: "1907–2007", sortYear: 1907, role: "polski leksykograf, tłumacz literatury angielskiej", era: "XX wiek", genre: "Esej / Historia", works: [{ title: "Kot w worku czyli z dziejów powiedzeń i nazw", quote: "Arka Noego: Jehowa, nakazując Noemu zbudowanie arki, zastrzegł sobie wymiary dość pokaźne: długość trzysta łokci, szerokość pięćdziesiąt, wysokość trzydzieści..." }] },
+      { name: "Wacław Korabiewicz", years: "1903–1994", sortYear: 1903, role: "polski reportażysta, poeta i podróżnik", era: "XX wiek", genre: "Esej / Historia", works: [{ title: "Śladami amuletu (studium)", quote: "Na marginesach jej wypisane były prawa Jehowy w języku świętym gez, na dole zaś widniały trzy greckie litery: I.H.S." }] },
+      { name: "Zofia Kossak-Szczucka", years: "1889–1968", sortYear: 1889, role: "polska powieściopisarka", era: "XX wiek", genre: "Proza", works: [{ title: "Złota wolność (powieść, Tom I, rozdz. XIII)", quote: "Daremne przestrogi, bo król dał już znak. Zawrzasły chrapliwe trąby. Z krzykiem: „Jehowa!” – olbrzymie cielsko armii szwedzkiej wywala się w dół. (...) „Jehowa!” – grzmi nad doliną." }] },
+      { name: "Faustyna Kowalska [św. Faustyna]", years: "1905–1938", sortYear: 1905, role: "święta katolicka, zakonnica i mistyczka", era: "XX wiek", genre: "Proza", works: [{ title: "Dzienniczek (Zeszyt szósty, 104)", quote: "I woła głosem swej nędzy: Ześlij nam zmiłowanie. / Lecz milczy Jehowa... i przechodzi wiek za wiekiem. (...) O wielki Jehowa, daj się być przebłagany, / Wspomnij na Twoją dobroć i przebacz nasze złości." }] },
+      { name: "Władysław Kozicki", years: "1879–1936", sortYear: 1879, role: "polski historyk sztuki, poeta i dramaturg", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [{ title: "Dawid (wiersz)", quote: "Jej harmonia objęła czar szyi i głowę, / Pomsty wichrem rozwiała zuchwałe kędziory, / Ogień w oku zażegła, zwiastując Jehowę." }] },
+      { name: "Zygmunt Krasiński", years: "1812–1859", sortYear: 1812, role: "jeden z największych poetów polskiego romantyzmu", era: "Oświecenie i Romantyzm", genre: "Dramat", works: [
+        { title: "Irydion (dramat, Część III)", quote: "WIKTOR: Ale w przestworach śmierci wy żyć będziecie tam, gdzie zemsta Pana wiecznym gromem uderza! Wy żyć będziecie na wieki! (Do Symeona) Uciekaj jak pierwszy morderca sprzed oblicza Jehowy!" },
+        { title: "Nie-Boska komedia (Część III)", quote: "CHÓR: Jehowa Pan Izraela, a nikt inny. (...) Pogardzeni wstaną w gniewie swoim, w chwałę Jehowy się ustroją; słowo Jego zbawienie..." },
+        { title: "Psalmy Przyszłości (IV. Psalm Żalu)", quote: "Moc Jehowy – nie gniew, / Zlana z myślą Chrysta, / W jeden wiew / Iskra wiekuista..." }
+      ]},
+      { name: "Józef Ignacy Kraszewski", years: "1812–1887", sortYear: 1812, role: "polski pisarz, publicysta, wydawca i historyk", era: "Oświecenie i Romantyzm", genre: "Proza", works: [
+        { title: "Powrót do gniazda (powieść z podań XVI w.)", quote: "Ponad drzwiami ten sam rękodzielnik zawiesił w oknie w koronce z żelaza imię Jehowy." },
+        { title: "Żyd (powieść)", quote: "...czuję się członkiem tej wielkiej rodziny, na której czole palec Mojżeszów wyrył tajemnicze imię J e h o w y... (...) „Wybierzesz życie – mówi Mojżesz – ażebyś żył; będziesz miłował Jehowę, Boga Twego...”" }
+      ]},
+      { name: "Aleksander Kraushar", years: "1843–1931", sortYear: 1843, role: "polski historyk, publicysta i poeta", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [{ title: "Język Niedoli (wiersz)", quote: "Język Mojżesza – to głos Jehowy... / Szekspir – w myśl wnika głęboko... / Dante – ekstazy przemawia słowy... / Tołstoj – to serc ludzkich oko..." }] },
+      { name: "Jan Kubisz", years: "1848–1929", sortYear: 1848, role: "polski poeta, pamiętnikarz, działacz Śląska Cieszyńskiego", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [{ title: "Woda ze skały (wiersz)", quote: "Więc prorok pełen żalu i pełen kłopotu / Gwoli szemrania ludu wstąpił do namiotu / Zgromadzenia i upadł na twarz przed Jehową..." }] },
+      { name: "Joanna Kulmowa", years: "ur. 1928", sortYear: 1928, role: "polska poetka, prozaik, autorka utworów scenicznych", era: "XX wiek", genre: "Poezja", works: [
+        { title: "Boże Umieranie / Kradzione / Lotowa / Noe / Ofiara / Słowo / Stukam, pukam / Zielony Rabin", quote: "Nie oglądaj się Lotowa – / tam w obłoku spada Bóg. / Nie podpatruj pańskich dróg. / Idź bo kazał iść Jehowa. (...) Trzeba nam dzielić się z Jehową, / On ciągle stwarza świat na nowo. (...) Na początku było Słowo. / Kiedy je odwołasz Jehowo?" }
+      ]},
+      { name: "Teofil Lenartowicz", years: "1822–1893", sortYear: 1822, role: "polski etnograf, rzeźbiarz i poeta romantyczny", era: "Oświecenie i Romantyzm", genre: "Poezja", works: [{ title: "Izrael (wiersz)", quote: "Jehowa mocny, strzeż, żeby dzieci tej ziemi / Nie poszły z Polski precz, jak my z Jerozolimy... (...) Za nami mury miast, za nami pójdą wieże, / Jehowah! ach Jehowah! / Elohim Sabaoth, ach! ach..." }] },
+      { name: "Stanisław Łach", years: "1906–1983", sortYear: 1906, role: "polski teolog, biblista, duchowny katolicki, profesor KUL", era: "XX wiek", genre: "Przekład Biblii", works: [{ title: "Pismo Święte Starego Testamentu – Księga Wyjścia (Nihil obstat. IMPRIMATUR)", quote: "Dawniejsi uczeni, opierając się na aktualnej wokalizacji poczynionej przez Masoretów, wymawiali Jehowa(h), natomiast ogół obecnych uczonych wymawia Jahwe(h)." }] },
+      { name: "Władysław Łoziński", years: "1843–1913", sortYear: 1843, role: "polski powieściopisarz i historyk", era: "Pozytywizm i Młoda Polska", genre: "Proza", works: [{ title: "Skarb watażki (powieść)", quote: "I niechaj mi Jehowa nie przebaczy, jeśli ja tobie przebaczę!" }] },
+      { name: "Stanisław Mackiewicz [Cat]", years: "1896–1966", sortYear: 1896, role: "polski publicysta polityczny i pisarz", era: "XX wiek", genre: "Esej / Historia", works: [
+        { title: "Herezje i prawdy (esej)", quote: "Nie jest to naród, który mógłby rozwiać Jehowa po całym świecie w poszukiwaniu większych zarobków czy dochodów..." },
+        { title: "Kto mnie wołał czego chciał... (felietony)", quote: "Jehowa wyprowadził swój lud z Palestyny i wprowadził go do europejskich sal sądowych." }
+      ]},
+      { name: "Adam Michnik", years: "ur. 1946", sortYear: 1946, role: "polski publicysta, eseista, pisarz i historyk", era: "XX wiek", genre: "Esej / Historia", works: [{ title: "Polskie pytania – Książę i żebrak", quote: "Opowie, jak Jehowa – zdenerwowany tolerancyjną polityką Salomona wobec innych religii – nakazał mu przez specjalnego wysłannika natychmiastową „likwidację kultu fałszywych bożków”." }] },
+      { name: "Tadeusz Miciński", years: "1873–1918", sortYear: 1873, role: "pisarz i poeta polski okresu Młodej Polski", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [{ title: "Białe róże krwi... / Przed Burzą / Wodne Lilie", quote: "Mej duszy osnowa, / którą ci składam na wieczność: / był ból i była konieczność / i Kain, i grzech, i Jehowa, / i ducha śmiertelny głód – / a teraz wolność – i cud. (...) patrząc w mgławicowe światy – i starca wiecznego – Jehowę." }] },
+      { name: "Adam Mickiewicz", years: "1798–1855", sortYear: 1798, role: "największy poeta polskiego romantyzmu", era: "Oświecenie i Romantyzm", genre: "Poezja", works: [
+        { title: "Hymn na dzień Zwiastowania N. P. Maryi", quote: "Pokłon Przeczystej Dziewicy! / Nad niebiosa Twoje skronie, / Gwiazdami Twój wieniec płonie / Jehowie na prawicy. (...) Pójrzał Jehowah i w Niej upodobał sobie..." },
+        { title: "Kartofla (poemat, Pieśń I, Wilno 1819)", quote: "Tymczasem ów, tworzący jedną mocą słowa, / Ów, co nie zna początku i końca, Jehowa, / Którego czoło wzniosłe nad wieczności stropy, / A ćmy słońc, ziem i niebios krążą mu u stopy..." },
+        { title: "Mieszko Książę Nowogródka (1819)", quote: "Wtem Jehowa na Mieszka rzucił wzrok łaskawy / I chciał, żeby go miłość wiodła do poprawy." }
+      ]},
+      { name: "Daniel Mikołajewski", years: "1560–1633", sortYear: 1560, role: "polski duchowny i teolog reformowany, współtłumacz Biblii Gdańskiej (1632)", era: "Renesans i Barok", genre: "Przekład Biblii", works: [{ title: "Biblia Gdańska (1632) – Exodus (Księga Wyjścia) 6:2–3", quote: "Nad to mówił Bóg do Mojżesza i rzekł do niego: JA PAN, (3) Którym się ukazał Abrahamowi, Izaakowi i Jakóbowi w tem imieniu, żem BÓG WSZECHMOGĄCY: ale w Imieniu mojem, JEHOVAH, nie jestem poznany od nich." }] },
+      { name: "Czesław Miłosz", years: "1911–2004", sortYear: 1911, role: "polski poeta, prozaik, eseista i tłumacz, laureat Nagrody Nobla", era: "XX wiek", genre: "Poezja", works: [
+        { title: "Przed Majestatem (1978)", quote: "Gorzko, Boga w nieszczęściu chwalić, myśląc, że nie uratował, chociaż mógł. / Anioł Jehowy nie dotknął powiek człowieka, którego trzymam za rękę, / świadek bezwolny cierpienia bez winy." },
+        { title: "Traktat poetycki (1957, cz. IV Natura)", quote: "Sint mihi Dei Acherontis propitii! / Valeat numen triplex Jehovae!" }
+      ]},
+      { name: "Gustaw Morcinek", years: "1891–1963", sortYear: 1891, role: "polski pisarz, nauczyciel i publicysta", era: "XX wiek", genre: "Proza", works: [{ title: "Górniczy zakon (powieść)", quote: "Ostatni wszedł Kupilas. Coś mruczał o wszechmocy Boga, o zagniewanym Jehowie, o aniele stróżu." }] },
+      { name: "Urke Nachalnik [Icek Boruch Farbarowicz]", years: "1897–1939", sortYear: 1897, role: "polski pisarz i autor wspomnień", era: "XX wiek", genre: "Proza", works: [{ title: "Życiorys własny przestępcy (autobiografia)", quote: "A teraz za złe uczynki odpowiadać będę przed „Jehową” własną głową. (...) mówił np., że jak tylko przekroczę przykazanie Jehowy, zostanę zupełnie zgubiony..." }] },
+      { name: "Igor Newerly", years: "1903–1987", sortYear: 1903, role: "polski pisarz i pedagog", era: "XX wiek", genre: "Proza", works: [{ title: "Wzgórze Błękitnego Snu (powieść)", quote: "– Niech Jehowa i Chrystus, niech Bóg cię wynagrodzi za te słowa!" }] },
+      { name: "Julian Ursyn Niemcewicz", years: "1757–1841", sortYear: 1757, role: "polski dramaturg, powieściopisarz i poeta", era: "Oświecenie i Romantyzm", genre: "Proza", works: [{ title: "Lejbe i Sióra (romans w listach, List II, IV, V)", quote: "...odważa się pić wodę z chrześcijańskiego kubka, powiada, że chrześcijanie mają duszę, i równie jak my, są stworzeniami Jehowy. (...) Jehowa prawdziwie podał ci tę myśl..." }] },
+      { name: "Andrzej Niemojewski", years: "1864–1921", sortYear: 1864, role: "polski poeta, pisarz i religioznawca", era: "Pozytywizm i Młoda Polska", genre: "Esej / Historia", works: [{ title: "Dusza żydowska w zwierciadle Talmudu", quote: "Ditlef Nielsen nie sądzi, by obecnie przyjęty sposób wymawiania „Jahwe” był prawidłowszy od dawniejszego „Jehowa”." }] },
+      { name: "Cyprian Kamil Norwid", years: "1821–1883", sortYear: 1821, role: "polski poeta, prozaik, dramatopisarz, eseista i filozof", era: "Oświecenie i Romantyzm", genre: "Poezja", works: [
+        { title: "Do J. O. Księcia Adama Czartoryskiego (1852)", quote: "Nie on ostatni koniec wszech-konieczny, / O którym żaden wyrosły z kołyski, / I żaden Anioł nie wie, i Syn-wieczny, / Jedno Ogromny Sam Jeden Jehowa;" },
+        { title: "Modlitwa / Fiat i vivat / Pożegnanie / Pół-listu / Listy", quote: "Przez Ciebie – prochów stałem się Jehową, / Twojego w piersiach mam i czczę anioła... (...) Jehowo, Jehowo, / Wracamy w Twe Słowo: / My bo Słowianie." },
+        { title: "Rzecz o wolności słowa (1869, rozdz. XI i XII)", quote: "...jam wielbił te słowa Psalmu: „Naśmieje się z nich kiedyś Sam Jehowa!” (...) „Nie rzekłem nic... czytajcie! co zmówił Jehowa!”" }
+      ]},
+      { name: "Adolf Nowaczyński", years: "1876–1944", sortYear: 1876, role: "polski pisarz, dramaturg, satyryk i publicysta", era: "Pozytywizm i Młoda Polska", genre: "Esej / Historia", works: [{ title: "Skotopaski sowizdrzalskie (1904)", quote: "Od Jehowy począwszy każdy artysta znajduje na początku tylko chaos. Rzadko który jednak ma ostatniego dnia czas spoczynku." }] },
+      { name: "Artur Oppman [Or-Ot]", years: "1867–1931", sortYear: 1867, role: "polski poeta okresu Młodej Polski", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [{ title: "Berek Jawor (wiersz)", quote: "Kiedy stanie w progu swojej budy, / Ogniem rannych natchniony pacierzy, / Ma powagę dawnych synów Judy, / Sług Jehowy: wieszczów i rycerzy. (...) Rebe Jawor płacze nad swym ludem / I wyciąga do Jehowy dłonie." }] },
+      { name: "Grzegorz Orszak", years: "1520–1567", sortYear: 1520, role: "polski pisarz i działacz reformacyjny, współtłumacz Biblii Brzeskiej (1563)", era: "Renesans i Barok", genre: "Przekład Biblii", works: [{ title: "Biblia Brzeska / Radziwiłłowska (1563) – Wtore Księgi Mojżeszowe (Wyjścia) 6:3", quote: "Ktorym sie ukazał Abrahamowi, Jzaakowi, y Jakobowi iako Bog wszechmocny, Alem iem nieoznaymil imienia mego Jehowah." }] },
+      { name: "Eliza Orzeszkowa", years: "1841–1910", sortYear: 1841, role: "polska pisarka epoki pozytywizmu", era: "Pozytywizm i Młoda Polska", genre: "Proza", works: [
+        { title: "Meir Ezofowicz (powieść)", quote: "Jehowa ma liczne sefiroty, Adam miał różne doskonałości wypływy. (...) A w święty dzień sabatu, Jehowa, niech będzie pochwalone święte imię Jego, daje spoczynek świętej rzece Sabation..." },
+        { title: "Silny Samson / Daj kwiatek (nowele)", quote: "Wiem – myśli Szymszel – są to modlitwy ludzkie, które znad ziemi płyną, płyną ku Jehowie, a Sandalfon chwyta je w przelocie, w kwiaty przemienia, w wieńce uplata i ściele Przedwiecznemu pod stopy. (...) – Sandalfonie, Sandalfonie, proś Jehowy, żeby zrobił go – Silnym Samsonem!" }
+      ]},
+      { name: "Ferdynand Ossendowski", years: "1876–1945", sortYear: 1876, role: "polski pisarz, dziennikarz i podróżnik", era: "XX wiek", genre: "Proza", works: [{ title: "Lenin (powieść biograficzna)", quote: "Znowu podnieśli rabini cadyka sędziwego, a ten ręką potrząsnął i rzekł poważnym głosem: – Powtarzam za Ezechielem słowa Jehowy: „Przetoż i Ja będę czynił w zapalczywości...”" }] },
+      { name: "Jan Parandowski", years: "1895–1978", sortYear: 1895, role: "polski pisarz, eseista i tłumacz", era: "XX wiek", genre: "Proza", works: [{ title: "Niebo w płomieniach (powieść, rozdz. 12)", quote: "Któż jest tak naiwny, by wierzyć, że przyczyną powstania świata było to, aby właśnie Jehowie przyczynić chwały?" }] },
+      { name: "Wacław Potocki", years: "1621–1696", sortYear: 1621, role: "polski poeta, epik i dramaturg barokowy", era: "Renesans i Barok", genre: "Dramat", works: [{ title: "Dialog o zmartwychwstaniu Pańskim (akt V, w. 965)", quote: "Takem i ja rozumiał, że nam ten świat dadzą / W nagrodzie, kiedy nas tu z nieba wyprowadzą; / Że Jehowa z ludzkiego rodzaju się samym / Z jego ukontentuje dziećmi Abrahamem." }] },
+      { name: "Bolesław Prus [Aleksander Głowacki]", years: "1847–1912", sortYear: 1847, role: "polski pisarz, prozaik, nowelista i publicysta okresu pozytywizmu", era: "Pozytywizm i Młoda Polska", genre: "Proza", works: [{ title: "Faraon (powieść historyczna, rozdz. III, IX, XIII, XV, XVI, XX, XXXV, XXXVIII, XLI)", quote: "– Boże Abrahama, Izaaka, Jakuba, który wyprowadziłeś lud nasz z ziemi egipskiej... Boże Jehowa, Boże Adonaj, pozwól nam spożywać bez grzechu płody wrogiej ziemi... (...) Przez niewysłowione imię Jehowa, na dźwięk którego ziemia drży, morze cofa się, ogień gaśnie, rozkładają się elementy natury..." }] },
+      { name: "Ksawery Pruszyński", years: "1907–1950", sortYear: 1907, role: "polski reporter, publicysta, literat i dyplomata", era: "XX wiek", genre: "Esej / Historia", works: [{ title: "Jacy wrócimy (Wiadomości Polskie, Londyn 1942)", quote: "...jeśli zakładamy, że Sikorski jest nowoczesnym Mojżeszem, któremu Jehowa udziela codziennych wskazówek, którędy doprowadzić Izraelitów tak, aby ich nie dopadł niedobry faraon." }] },
+      { name: "Kazimierz Przerwa-Tetmajer", years: "1865–1940", sortYear: 1865, role: "polski poeta, nowelista i powieściopisarz okresu Młodej Polski", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [
+        { title: "Przebudzenie Jehowy (wiersz)", quote: "Jehowa się przebudził i spojrzał dookoła: / wszystko było, jak wówczas, gdy zamknął powieki / przed czasem, który tylko On sam zmierzyć zdoła." },
+        { title: "Nowina / Sen Rzeczywisty (wiersze)", quote: "A tam: Jehowa... Bóg, co stworzył słońce, / utwierdził gwiazdy na niebieskim sklepie... (...) jesteś igraszką, źdźbłem w rękach Jehowy!" }
+      ]},
+      { name: "Ignacy Radliński", years: "1843–1920", sortYear: 1843, role: "pionier religioznawstwa w Polsce, filolog i historyk", era: "Pozytywizm i Młoda Polska", genre: "Esej / Historia", works: [
+        { title: "Jehowa, mrok średniowiecza i król pruski, Wilhelm II", quote: "...Jehowa, Bóg narodowy żydowski w nich światu grecko-rzymskiemu się objawiający, za jedynego, prawdziwego i rzeczywistego Boga był powszechnie uznany..." },
+        { title: "Dzieje jednego z synów bożych", quote: "Jak Mojżesz od Jehowy, tak Zaratustra, prawodawca narodu perskiego, od Ahura-Mazdy, boga perskiego, otrzymuje przepisy..." }
+      ]},
+      { name: "Zofia Romanowiczowa", years: "1922–2010", sortYear: 1922, role: "polska pisarka i tłumaczka", era: "XX wiek", genre: "Poezja", works: [{ title: "Różaniec – Tajemnica IV Ofiarowanie (Ravensbrück 1942–1945)", quote: "Kędy cień Salomona w szacie purpurowej / Siedząc na złotym tronie sądził i rozważał / I gdzie wiew przeraźliwy jak tchnienie Jehowy / Ruszał fałdy zasłony i światła w ołtarzach." }] },
+      { name: "Mieczysław Romanowski", years: "1833–1863", sortYear: 1833, role: "polski poeta epoki romantyzmu", era: "Oświecenie i Romantyzm", genre: "Poezja", works: [{ title: "Rabin (wiersz, 1862)", quote: "Słucha ich rabin i rzecze: „Posłowie, / Na sądzie Pana przeniewiercom biada! / Jak się tu zrodził, tu służąc Jehowie / Zginę, gdy zginie braci mych gromada”." }] },
+      { name: "Karol Hubert Rostworowski", years: "1877–1938", sortYear: 1877, role: "polski dramaturg i poeta", era: "XX wiek", genre: "Dramat", works: [{ title: "Judasz z Kariothu (dramat w pięciu aktach)", quote: "JUDASZ: I że im gadał o Jehowie. (...) Ciekawość tylko... w jaką stronę. Mojżesz przed sobą miał Jehowę. (...) ELEAZAR: Błogosławi wam Jehowa." }] },
+      { name: "Horacy Safrin", years: "1899–1980", sortYear: 1899, role: "polski poeta, satyryk, autor sztuk scenicznych i tłumacz", era: "XX wiek", genre: "Proza", works: [{ title: "Przy szabasowych świecach (1962)", quote: "A wszechmocny Jehowa stworzył naszą wielce niedoskonałą kulę ziemską, zazierając do bogato oprawionej księgi Genezis." }] },
+      { name: "Artur Sandauer", years: "1913–1989", sortYear: 1913, role: "polski krytyk literacki, eseista, profesor UW, tłumacz Księgi Rodzaju", era: "XX wiek", genre: "Esej / Historia", works: [{ title: "Bóg, Szatan, Mesjasz i ...? (Księga Rodzaju, zbiór esejów)", quote: "Jehowa – utrzymuje historyk żydowski, Józef Flawiusz – grozi „siedmiokrotną pomstą” nie temu, kto zabije Kaina, lecz Kainowi samemu..." }] },
+      { name: "Bruno Schulz", years: "1892–1942", sortYear: 1892, role: "polski prozaik, grafik, malarz i krytyk literacki", era: "XX wiek", genre: "Proza", works: [{ title: "Sklepy cynamonowe – Nawiedzenie", quote: "Był to dialog groźny jak mowa piorunów. Łamańce rąk jego rozrywały niebo na sztuki, a w szczelinach ukazała się twarz Jehowy, wzdęta gniewem i plująca przekleństwa." }] },
+      { name: "Władysław Sebyła", years: "1902–1940", sortYear: 1902, role: "polski poeta", era: "XX wiek", genre: "Poezja", works: [{ title: "Jehowa (wiersz)", quote: "Byłeś panem ponad ziemią, niebem, morzem... / W pas kłaniały ci się zioła, zboża, dęby; / Teraz kłamią i mordują w imię boże, / Oszukują, wycierają sobie gęby." }] },
+      { name: "Henryk Sienkiewicz", years: "1846–1916", sortYear: 1846, role: "polski nowelista, powieściopisarz i publicysta, laureat Nagrody Nobla", era: "Pozytywizm i Młoda Polska", genre: "Proza", works: [{ title: "Quo vadis (powieść, rozdz. XLIV, XLIX, L, LV)", quote: "– Słowa twoje, panie, są słodkie, jak grono winnej macicy i jako figa dojrzała, albowiem Jehowa napełnił dobrocią serce twoje. (...) – Nie, panie. Cezar Kajus uląkł się gniewu Jehowy. I podnieśli głowy, albowiem imię potężnego Jehowy dodało im odwagi." }] },
+      { name: "Edward Słoński", years: "1872–1926", sortYear: 1872, role: "polski poeta i pisarz", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [{ title: "Kain (wiersz)", quote: "Z Twojego słowa, Jehowo, się zrodził / mój przepotężny ból, jak ogień żrący... / Długoż mnie będziesz po manowcach wodził, / Ty sprawiedliwy i Ty wszechmogący?" }] },
+      { name: "Juliusz Słowacki", years: "1809–1849", sortYear: 1809, role: "wieszcz polskiego romantyzmu, poeta, dramaturg i filozof", era: "Oświecenie i Romantyzm", genre: "Poezja", works: [
+        { title: "Anhelli (rozdz. XIV) / Kordian (Przygotowanie i akt III)", quote: "Zawołał Jehowa dwa odwieczne cherubiny przed tron swój i rzekł: Idźcie na równinę Syberii. (...) A koronę Jehowy przyozdobię perłą / Ludu zmartwychwstałego..." },
+        { title: "Beniowski (Pieśń III i V) / Godzina myśli", quote: "Znajdzie – ja sądzę, że znajdzie – i życzę / Ludziom małego serca: kornej wiary, / Spokojnej śmierci. – Jehowy oblicze / Błyskawicowe jest ogromnej miary!" },
+        { title: "Ksiądz Marek / Samuel Zborowski / Podróż do Ziemi Świętej z Neapolu", quote: "Jednak widzę wypadek jeden... okiem wieszcza: / Mojżesz królowi wolę Jehowy obwieszcza! (...) Żem drżał jak Mojżesz, gdyby mu Jehowa / Rękę był swoją pokazał ze skały." }
+      ]},
+      { name: "Leopold Staff", years: "1878–1957", sortYear: 1878, role: "polski poeta, tłumacz i eseista", era: "XX wiek", genre: "Poezja", works: [{ title: "S. W. – In Memoriam (wiersz)", quote: "Tam naprzeciw, wśród gromów i wśród twórczego burz Słowa, / Nowy świat już wyłaniał stwórca, potężny Jehowa, / I zwalczony jest chaos i starych piekieł zasadzki / Wśród hejnału, co trąbi na triumf z Wieży Mariackiej!" }] },
+      { name: "Władysław Syrokomla [Ludwik Kondratowicz]", years: "1823–1862", sortYear: 1823, role: "polski poeta i tłumacz epoki romantyzmu", era: "Oświecenie i Romantyzm", genre: "Poezja", works: [
+        { title: "Do J. I. Kraszewskiego (wiersz)", quote: "Gdybym miał talent wieszcza, gdyby mi Jehowa / Włożył w usta prorocze uroczyste słowa / I kazał głosić światu – tym słowem przejęty, / Dałbym się kamieniować jako Szczepan święty." },
+        { title: "Stare wrota (poemat, 1856)", quote: "W doli narodów, nim burza Jehowy / O ściany kraju uderzy w zapędzie, / Bóg najprzód miesza stary ład domowy..." }
+      ]},
+      { name: "Wilhelm Szewczyk", years: "1916–1991", sortYear: 1916, role: "polski prozaik, publicysta, krytyk literacki, poeta i tłumacz", era: "XX wiek", genre: "Proza", works: [{ title: "Skarb Donnersmarcków (powieść)", quote: "A książę – uśmiechnął się – jest jak nasz Pan, Jehowa, złoczyńców ściga bezlitośnie aż do drugiego lub trzeciego pokolenia." }] },
+      { name: "Antoni Szlagowski", years: "1864–1956", sortYear: 1864, role: "polski duchowny katolicki, arcybiskup, rektor Wydziału Teologicznego UW", era: "XX wiek", genre: "Przekład Biblii", works: [{ title: "Nowy Testament Jezusa Chrystusa / Ewangelje i dzieje Apostolskie (opracowanie przekładu ks. J. Wujka)", quote: "Jan (Johanan, znaczy Jehowa miłosierny), syn Zebedeusza... Greccy tłumacze Aleksandryjscy Ksiąg Starego Test. wyrazem: Pan (Kyrios, Dominum) przekładają hebrajski wyraz Jehowa, miano Boga prawdziwego." }] },
+      { name: "Witold Szolginia", years: "1923–1996", sortYear: 1923, role: "polski architekt, autor książek i radiowych gawęd o Lwowie", era: "XX wiek", genre: "Poezja", works: [{ title: "Naród wybrany (wiersz, Warszawa 1986)", quote: "„I niech Jehowa da mi zdrowie / Do prowadzenia interesów...” (...) Pamięć – dar Boga (czy Jehowy...) – / Czasu tamtego, tamtych ludzi..." }] },
+      { name: "Władysław Szpilman", years: "1911–2000", sortYear: 1911, role: "polski kompozytor i pianista", era: "XX wiek", genre: "Proza", works: [{ title: "Pianista. Warszawskie wspomnienia 1939–1945", quote: "...a w jego spojrzeniu dało się zauważyć wyraz uszczęśliwienia, jakby na firmamencie ukazał się w tej chwili Jehowa w całej swojej wspaniałości." }] },
+      { name: "Józef Szujski", years: "1835–1883", sortYear: 1835, role: "polski historyk, publicysta, poeta i prozaik", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [{ title: "Maksyma (wiersz)", quote: "Co nam się pytać, jaki będzie los, / Co czasy przyniosły i lata: / W piersi każdego jest Jehowy głos, / I przyszłość, i przeszłość świata." }] },
+      { name: "Adam Szymański", years: "1852–1916", sortYear: 1852, role: "polski pisarz i publicysta", era: "Pozytywizm i Młoda Polska", genre: "Proza", works: [{ title: "Srul z Lubartowa (nowela)", quote: "I gdy wpatruję się dłużej w te widziadła nocne, nieraz zda mi się widzę, jak się poruszają drżące i blade wargi Żyda i głos cichy, rozpaczliwy szepce koło mnie: „O Jehowo, czemuś taki niemiłosierny dla jednego z najwierniejszych Twych synów?!”" }] },
+      { name: "Julian Święcicki", years: "1850–1932", sortYear: 1850, role: "polski historyk literatury, pisarz, poeta i tłumacz", era: "Pozytywizm i Młoda Polska", genre: "Esej / Historia", works: [{ title: "Historya Literatury Powszechnej – Literatura Żydowska", quote: "Od Jehowy tylko zależało dać deszcze obfite z urodzajami lub suszę – z głodem; to też hebrajczyk zwracał się ku niemu nieustannie, poczytując deszcze za łaskę Boga, suszę – za gniew i karę Jehowy." }] },
+      { name: "Janusz Tazbir", years: "ur. 1927", sortYear: 1927, role: "polski historyk, profesor Instytutu Historii PAN", era: "XX wiek", genre: "Esej / Historia", works: [{ title: "Okrucieństwo w nowożytnej Europie", quote: "Według Jana Crella surowość Jehowy zarówno wobec bałwochwalców, jak wrogów narodu wybranego, który otoczył szczególną opieką, jest w pełni zrozumiała i wytłumaczalna." }] },
+      { name: "Kornel Ujejski", years: "1823–1897", sortYear: 1823, role: "polski poeta i publicysta społeczny", era: "Oświecenie i Romantyzm", genre: "Poezja", works: [
+        { title: "Hagar na puszczy (wiersz)", quote: "Od słońca pożaru sczerniała mi głowa, / A wkoło pustynia; – do Ciebie, Jehowa, / Podnoszę płaczący mój głos... (...) Jehowa! Jehowa! och wody, och rosy, / Kropelki, kropelki choć dżdżu!" },
+        { title: "Izrael w Egipcie / Jeremiasz / Ostatnie głosy Sodomy", quote: "Straszliwy a mściwy Jehowy jest sąd, / Dla złego gniew jego, oh! sroższy niż trąd." }
+      ]},
+      { name: "Józef Umiński", years: "1888–1954", sortYear: 1888, role: "polski ksiądz katolicki, historyk Kościoła", era: "XX wiek", genre: "Przekład Biblii", works: [{ title: "Historia Kościoła (Tom I, Nihil obstat. IMPRIMATUR)", quote: "Jehowa starotestamentowy to nie Bóg najwyższy i według niektórych systemów należy zwalczać Jehowę i jego prawa." }] },
+      { name: "Jerzy Urban", years: "ur. 1933", sortYear: 1933, role: "polski dziennikarz, publicysta i pisarz", era: "XX wiek", genre: "Esej / Historia", works: [{ title: "Samosądy (zbiór felietonów)", quote: "...a on tymczasem załatwia z Jehową ludzkie interesy własne no i cudze, przywleczone przez uciekinierów do zajazdu." }] },
+      { name: "Andrzej Waligórski", years: "1926–1992", sortYear: 1926, role: "polski aktor, poeta, satyryk i dziennikarz", era: "XX wiek", genre: "Poezja", works: [{ title: "Mury Jerycha (wiersz)", quote: "I wołali – Jozue, niech pan już przestanie! / Albo się nawróciwszy łkali: O, Jehowo!!!" }] },
+      { name: "Józef Wittlin", years: "1896–1976", sortYear: 1896, role: "polski poeta, prozaik i tłumacz", era: "XX wiek", genre: "Poezja", works: [{ title: "Na Sądny Dzień żydowski roku 1942 (5703) (wiersz)", quote: "Jehowo! Zjaw się na Sądzie i wykryj błąd w protokóle, / Z nadobłocznego zejdź tronu i sam przed Sobą nas broń!" }] },
+      { name: "Piotr Wojciechowski", years: "ur. 1938", sortYear: 1938, role: "polski prozaik, reżyser i krytyk filmowy", era: "XX wiek", genre: "Proza", works: [{ title: "Czaszka w czaszce (powieść)", quote: "...upostaciowujący w Genezis zło Szatan rozszczepia się w następnych księgach Starego Przymierza na „nieprzyjaciela” – czyli nieprzyjaciela narodu wybranego, i „bałwany” – konkurencję Jehowy w sercach tego narodu." }] },
+      { name: "Karol Wojtyła [Jan Paweł II]", years: "1920–2005", sortYear: 1920, role: "polski duchowny rzymskokatolicki, kardynał, papież, poeta i dramaturg", era: "XX wiek", genre: "Dramat", works: [
+        { title: "Hiob – Drama ze Starego Testamentu (Kraków 1940)", quote: "BALDAD Z SUAH: Zamilcz już przecię, bo Jehowę / obrażasz słowy i mowami! – / Zamilcz, bo jako głupi prawisz." },
+        { title: "Jeremiasz – Drama Narodowe we Trzech Działach (Kraków 1940)", quote: "JIRMEJAHU: A kędy źródło? – Żeście sami / Baalów godni, nie Jehowy. (...) Tedy poznacie moc Jehowy. On mnie uwolni z pęt i oków." }
+      ]},
+      { name: "Jakub Wujek", years: "1541–1597", sortYear: 1541, role: "polski duchowny katolicki, jezuita, rektor Akademii Wileńskiej, tłumacz Biblii (1599)", era: "Renesans i Barok", genre: "Przekład Biblii", works: [{ title: "Biblia Jakuba Wujka (Kraków 1599) – Księgi Exodus 6:3 i Psalm 96/98", quote: "(Przypisy do rozdz. VI): Adonai y Iehova co znaczy. (...) (Uwaga marginesowa do Psalmu XCVIII): Christus Iehova. Przez PANA Jehowe w tym psalmie, Christus sie rozumie iako Apostoł wykłada." }] },
+      { name: "Stanisław Wyspiański", years: "1869–1907", sortYear: 1869, role: "polski dramaturg, poeta i malarz okresu Młodej Polski", era: "Pozytywizm i Młoda Polska", genre: "Dramat", works: [
+        { title: "Daniel (dramat, 1893)", quote: "DANIEL: Próżny trud: ja prorok z woli Jehowy. (...) To mówi wam Jehowa, to znaczą straszne słowa." },
+        { title: "Sędziowie (dramat)", quote: "JOAS: A gdy się, o brońże Jehowa, myśl jakaś wkradnie mętliwa, to zaraz mię serce zaboli." }
+      ]},
+      { name: "Włodzimierz Zagórski", years: "1834–1902", sortYear: 1834, role: "polski pisarz, satyryk, prozaik i publicysta", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [{ title: "Historia patriarchy Noego (wiersz)", quote: "Przeminął potop – Noe dank / Jehowie ofiarował / I obręcz z próżnej beczki zdjął, / I Panu ją darował." }] },
+      { name: "Kazimiera Zawistowska", years: "1870–1902", sortYear: 1870, role: "polska poetka okresu Młodej Polski", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [{ title: "Herodiada (wiersz)", quote: "Pójdź!... ja rozkoszą śćmię Tobie Jehowę... / Zapomnisz, twarzą padłszy na me łono..." }] },
+      { name: "Tadeusz Zieliński", years: "1859–1944", sortYear: 1859, role: "polski historyk kultury, filolog klasyczny, religioznawca, profesor UW", era: "XX wiek", genre: "Esej / Historia", works: [
+        { title: "Hellenizm a Judaizm / Cesarstwo rzymskie / Rzym i jego religja / Hermes Trzykroć Wielki", quote: "Religia Jehowy – przepraszam, że używam i nadal tej formy, uświęconej przez wielowiekową tradycję europejskiej literatury (...) jest jedyną prawdziwą religją starego świata... Bóg rzymski musiał być jeden w wielości i wieloraki w jedności; żydowski Jehowa był jeden-jedyny, i na tym koniec." }
+      ]},
+      { name: "Jerzy Żuławski", years: "1874–1915", sortYear: 1874, role: "polski pisarz, poeta i dramaturg okresu Młodej Polski", era: "Pozytywizm i Młoda Polska", genre: "Poezja", works: [{ title: "Stance o pieśni (wiersz)", quote: "I pieśń być musi jak ludów królowa, / jak sztandar zdarty w kul ognistym deszczu / i jak w płonącym krzu straszny Jehowa, / i jak pioruny, gdy przy ziemi dreszczu / Bóg na Synaju grzmiał praw swoich słowa..." }] }
+    ];
+
+    let activeLetter = 'ALL';
+
+    function getSortSurname(fullName) {
+      const withoutParens = fullName.replace(/\s*\(.*?\)/g, '').replace(/\s*\[.*?\]/g, '').trim();
+      const parts = withoutParens.split(' ');
+      return parts[parts.length - 1];
+    }
+
+    function escapeRegExp(str) {
+      return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function formatQuoteHtml(text, query) {
+      let html = text.replace(
+        /\b(Jehow[aąęyioóu]+|Jehovah|JEHOVAH|JEHOWĘ|Iehowah|Iehova|Jehovae|Jechowa|Jowa)\b/g,
+        '<span class="divine-name">$1</span>'
+      );
+      if (query && query.length >= 2) {
+        const rx = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+        html = html.replace(rx, '<mark class="search-hl">$1</mark>');
+      }
+      return html;
+    }
+
+    function highlightPlain(text, query) {
+      if (!query || query.length < 2) return text;
+      const rx = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+      return text.replace(rx, '<mark class="search-hl">$1</mark>');
+    }
+
+    function initAlphabetBar() {
+      const letters = ['ALL', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'I', 'J', 'K', 'L', 'Ł', 'M', 'N', 'O', 'P', 'R', 'S', 'Ś', 'T', 'U', 'W', 'Z', 'Ż'];
+      const bar = document.getElementById('alphabetBar');
+      bar.innerHTML = letters.map(letter => `
+        <button
+          type="button"
+          onclick="setLetterFilter('${letter}')"
+          data-letter="${letter}"
+          class="letter-btn min-w-[40px] h-10 px-2.5 rounded-xl text-xs sm:text-sm font-bold border transition ${
+            letter === 'ALL'
+              ? 'bg-[#8C5A2B] text-white border-[#8C5A2B]'
+              : 'bg-stone-100 text-stone-800 border-stone-300 hover:bg-amber-100'
+          }"
+        >
+          ${letter === 'ALL' ? 'Wszyscy' : letter}
+        </button>
+      `).join('');
+    }
+
+    function setLetterFilter(letter) {
+      activeLetter = letter;
+      document.querySelectorAll('.letter-btn').forEach(btn => {
+        if (btn.dataset.letter === letter) {
+          btn.className = 'letter-btn min-w-[40px] h-10 px-2.5 rounded-xl text-xs sm:text-sm font-bold border transition bg-[#8C5A2B] text-white border-[#8C5A2B]';
+        } else {
+          btn.className = 'letter-btn min-w-[40px] h-10 px-2.5 rounded-xl text-xs sm:text-sm font-bold border transition bg-stone-100 text-stone-800 border-stone-300 hover:bg-amber-100';
+        }
+      });
+      applyFilters();
+    }
+
+    function quickSearch(term) {
+      document.getElementById('searchInput').value = term;
+      document.getElementById('genreSelect').value = 'all';
+      document.getElementById('eraSelect').value = 'all';
+      setLetterFilter('ALL');
+      document.getElementById('wyszukiwarka').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetAllFilters() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('genreSelect').value = 'all';
+      document.getElementById('eraSelect').value = 'all';
+      setLetterFilter('ALL');
+    }
+
+    function applyFilters() {
+      const query = document.getElementById('searchInput').value.trim();
+      const qLower = query.toLowerCase();
+      const genreFilter = document.getElementById('genreSelect').value;
+      const eraFilter = document.getElementById('eraSelect').value;
+      const clearBtn = document.getElementById('clearSearchBtn');
+
+      if (query || genreFilter !== 'all' || eraFilter !== 'all' || activeLetter !== 'ALL') {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+
+      const sorted = [...AUTHORS_DB].sort((a, b) =>
+        getSortSurname(a.name).localeCompare(getSortSurname(b.name), 'pl')
+      );
+
+      const filtered = sorted.filter(item => {
+        if (genreFilter !== 'all' && item.genre !== genreFilter) return false;
+        if (eraFilter !== 'all' && item.era !== eraFilter) return false;
+        if (activeLetter !== 'ALL') {
+          const firstChar = getSortSurname(item.name).charAt(0).toUpperCase();
+          if (firstChar !== activeLetter) return false;
+        }
+        if (qLower) {
+          const hay = (
+            item.name + ' ' +
+            item.role + ' ' +
+            item.genre + ' ' +
+            item.era + ' ' +
+            item.works.map(w => w.title + ' ' + w.quote).join(' ')
+          ).toLowerCase();
+          return hay.includes(qLower);
+        }
+        return true;
+      });
+
+      const container = document.getElementById('cardsContainer');
+      const emptyState = document.getElementById('emptyState');
+      document.getElementById('resultsCounter').textContent = `Wyświetlono: ${filtered.length} z ${AUTHORS_DB.length} pozycji`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      container.innerHTML = filtered.map(item => `
+        <article class="bg-white rounded-2xl border border-stone-300 shadow-sm hover:shadow-md transition p-5 sm:p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+              <span class="px-3 py-1 rounded-lg text-xs font-bold bg-amber-100/90 text-amber-950 border border-amber-300">
+                ${item.genre}
+              </span>
+              <span class="text-xs sm:text-sm font-bold text-stone-600 bg-stone-100 px-2.5 py-1 rounded-lg border border-stone-200">
+                ${item.years}
+              </span>
+            </div>
+
+            <h2 class="author-heading text-stone-900 mb-1">
+              ${highlightPlain(item.name, query)}
+            </h2>
+            <p class="text-stone-600 text-xs sm:text-sm font-medium mb-4">
+              ${highlightPlain(item.role, query)}
+            </p>
+
+            <div class="space-y-3.5">
+              ${item.works.map(w => `
+                <div class="bg-[#FAF7F2] rounded-xl p-4 border-l-4 border-[#8C5A2B]">
+                  <div class="text-xs sm:text-sm font-bold text-stone-800 mb-1.5">
+                    📖 ${highlightPlain(w.title, query)}
+                  </div>
+                  <blockquote class="quote-text">
+                    „${formatQuoteHtml(w.quote, query)}”
+                  </blockquote>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-stone-200/80 flex items-center justify-between text-xs text-stone-500 font-semibold">
+            <span>Epoka: ${item.era}</span>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function initTimeline() {
+      const chronological = [...AUTHORS_DB].sort((a, b) => a.sortYear - b.sortYear);
+      const grid = document.getElementById('timelineGrid');
+      grid.innerHTML = chronological.map((item, idx) => `
+        <button
+          type="button"
+          onclick="quickSearch('${getSortSurname(item.name)}')"
+          class="text-left p-3 rounded-xl border border-stone-200 hover:border-amber-600 bg-stone-50/70 hover:bg-amber-50/50 transition flex items-start justify-between gap-2"
+        >
+          <div>
+            <div class="text-xs font-bold text-[#8C5A2B]">${idx + 1}. ${item.years}</div>
+            <div class="font-bold text-stone-900 text-sm sm:text-base leading-snug">${item.name}</div>
+          </div>
+          <span class="shrink-0 px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100/80 text-amber-950 border border-amber-200">
+            ${item.genre}
+          </span>
+        </button>
+      `).join('');
+    }
+
+    function setFontScale(scale) {
+      document.documentElement.setAttribute('data-scale', scale);
+      localStorage.setItem('jehowa_font_scale', scale);
+      document.querySelectorAll('.scale-btn').forEach(btn => {
+        if (btn.dataset.scaleBtn === scale) {
+          btn.classList.add('bg-white', 'text-stone-900', 'shadow-sm');
+        } else {
+          btn.classList.remove('bg-white', 'text-stone-900', 'shadow-sm');
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedScale = localStorage.getItem('jehowa_font_scale') || 'md';
+      setFontScale(savedScale);
+      initAlphabetBar();
+      initTimeline();
+      applyFilters();
+      document.getElementById('searchInput').addEventListener('input', applyFilters);
+    });
+  </script>
+</body>
+</html>
